@@ -25,97 +25,121 @@
     </div>
 
 	<div class="cd-user-modal"> 
-		<div class="cd-user-modal-container"> 
+		<div class="cd-user-modal-container">
 			<ul class="cd-switcher">
 				<li><a href="#0">Login</a></li>
 				<li><a href="#0">Register</a></li>
 			</ul>
 
 			<div id="cd-login"> <!-- log in form -->
-				<form name ="login" class="cd-form" onsubmit="return validateLogin()" method="post">
+				<form class="cd-form" name="login">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">E-mail</label>
 						<input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail" name="email">
-						<span class="cd-error-message">Error message here!</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signin-password">Password</label>
-						<input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password" name=pass>
-						<span class="cd-error-message">Error message here!</span>
+						<input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password">
+					</p>
+
+					<p class="fieldset">
+						<input type="checkbox" id="remember-me" checked>
+						<label for="remember-me">Remember me</label>
 					</p>
 
 					<p class="fieldset">
 						<input class="full-width" type="submit" value="Login">
 					</p>
 				</form>
-			</div>
+				
+				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+			</div> <!-- cd-login -->
 
 			<div id="cd-signup"> <!-- sign up form -->
-				<form class="cd-form" name="register" onsubmit="return validateRegister()" method="post">
+				<form class="cd-form">
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" name="user">
-						<span class="cd-error-message">Error message here!</span>
+						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail" name="email">
-						<span class="cd-error-message">Error message here!</span>
+						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password" name="password">
-						<span class="cd-error-message">Error message here!</span>
+						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password">
 					</p>
-                    
-                    <p class="fieldset">
-						<label class="image-replace cd-password" for="signup-password">Confirm Password</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="password" placeholder="Confirm Password" name="pass2">
-						<span class="cd-error-message">Error message here!</span>
+
+					<p class="fieldset">
+						<input type="checkbox" id="accept-terms">
+						<label for="accept-terms">I agree to the <a href="#0">Terms and Conditions</a></label> <!--link to terms..optional-->
 					</p>
 
 					<p class="fieldset">
 						<input class="full-width has-padding" type="submit" value="Create account">
 					</p>
 				</form>
-			</div> 
+			</div> <!-- cd-signup -->
+
+			<div id="cd-reset-password"> <!-- reset password form -->
+				<p class="cd-form-message">Lost your password? Please enter your email address.</p>
+
+				<form class="cd-form" action="./resources/reset.php" method="post">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="reset-email" name="reset-email" type="email" placeholder="E-mail">
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Reset password">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+			</div> <!-- cd-reset-password -->
 			<a href="#0" class="cd-close-form">Close</a>
-		</div> 
-	</div> 
+		</div> <!-- cd-user-modal-container -->
+	</div> <!-- cd-user-modal -->
     
     <script>
 
-function validateLogin() {
-    var x = document.forms["login"]["username"].value;
-    if (x == null || x == "") {
-        alert("Name must be filled out");
-        return false;
+    function validateLogin() {
+        var x = document.forms["login"]["email"].value;
+        if (x == null || x == "") {
+            alert("Email required");
+            return false;
+        }
+        else{ //NEEDS WORK- WON'T REDIRECT
+            location.assign( "http://www.tcktr.tk/tcktr/admin/admin.html");
+            //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        }
     }
-     window.location = "http://www.tcktr.tk/tcktr/admin/admin.html";
-}
 
     function validateRegister() {
-    var x = document.forms["register"]["user"].value;
-    if (x == null || x == "") {
-        alert("Please select a longer username");
-        return false;
+        var x = document.forms["register"]["user"].value;
+        if (x == null || x == "") {
+            alert("Please select a longer username");
+            return false;
+        }
+        var y = document.forms["register"]["password"].value;
+        var y2 = document.forms["register"]["pass2"].value;
+        if (y == null || y == "" || y.length<8) {
+            alert("Please select a longer password");
+            return false;
+        }
+        if (y!=y2) {
+            alert("Passwords must match");
+            return false;
+        }
+         window.location = "http://www.tcktr.tk/tcktr/admin/admin.html";
+        return true;
     }
-    var y = document.forms["register"]["password"].value;
-    var y2 = document.forms["register"]["pass2"].value;
-    if (y == null || y == "" || y.length<8) {
-        alert("Please select a longer password");
-        return false;
-    }
-    if (y!=y2) {
-        alert("Passwords must match");
-        return false;
-    }
-     window.location = "http://www.tcktr.tk/tcktr/admin/admin.html";
-}
-</script>
+    </script>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> 

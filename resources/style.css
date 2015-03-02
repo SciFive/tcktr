@@ -21,10 +21,6 @@ a.btn {
 	border-bottom-width: 3px;
 }
 
-div.main-nav{
-    margin-right: 40%;
-}
-
 #shows{
     color:#260000;
     height: auto;
@@ -50,6 +46,14 @@ div.main-nav{
     background-color: rgba(255, 255, 255, 0.4);
 }
 
+#title{
+    color:white;
+    font-family: 'Raleway', sans-serif;
+	text-align: center;
+	font-size: 1.2em;
+	text-align: center;
+}
+
 h1 {
 	font-family: 'Waiting for the Sunrise', cursive;
 	font-size: 50px;
@@ -59,7 +63,6 @@ h1 {
 
 h2 {
     font-family: 'Raleway', sans-serif;
-    color: black;
 	text-align: center;
 	margin-bottom: 30px;
 	letter-spacing: 1px;
@@ -71,7 +74,7 @@ h3{
 }
 
 #catchLine {
-	width: 900px;
+	width: 100%;
 	border-bottom: 1px solid #FFFFFF;
 	border-top: 1px solid #FFFFFF;
 	letter-spacing: 5px;
@@ -81,16 +84,26 @@ h3{
 }
 
 #mainContainer {
-	width: 900px;
+	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
 }
 
+@media only screen and (max-width: 950px) {
+  #mainContainer{
+    width:90%;
+  }
+  ul#dropdown li{
+    font-size: .9em;
+    padding: 0;
+  }
+}
+
 #dropdown {
  float: left;
-	list-style-type: none;
-    width: 100em;
-    margin: auto;
+ list-style-type: none;
+  width: 100%;
+  margin: auto;
 }
 
 a{
@@ -133,7 +146,7 @@ ul#dropdown li {
   padding-left: 25px;
   padding-right: 25px;
   text-align: center;
-  width: 8em;
+  width: 7em;
   margin-bottom: 5px;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -157,7 +170,7 @@ ul#dropdown li ul {
   position: absolute;
   top: 90px;
   left: 0;
-  width: 150px;
+  width: 100%;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -175,6 +188,7 @@ ul#dropdown li ul li {
   display: block; 
   color: #fff;
   height: 2em;
+  width: auto;
   text-shadow: 0 -1px 0 #000;
 }
 ul#dropdown li ul li:hover { background: #666; }
@@ -194,8 +208,8 @@ ul#dropdown li:hover ul {
 }
 #profilepic{
     font-size: .7em;
-    width: 40em;
     margin-top: 1em;
+    width: 0%;
     height: 10em;
     border: 1px solid white ; 
 }
@@ -255,3 +269,4 @@ ul#dropdown li:hover ul {
   opacity: 1;
   transition: opacity 0.3s 0, visibility 0 0;
 }
+

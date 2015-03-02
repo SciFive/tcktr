@@ -6,7 +6,7 @@
 	<title>tcktr</title>
 	<link rel="stylesheet" type="text/css" href="./resources/style.css"/>
 	<link rel="stylesheet" href="./resources/login-signup-modal-window/css/style.css"> 
-	<script src="./resources/login-signup-modal-window/js/modernizr.js"></script> 
+	
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body>
@@ -27,8 +27,8 @@
 	<div class="cd-user-modal"> 
 		<div class="cd-user-modal-container"> 
 			<ul class="cd-switcher">
-				<li><a href="#0">Login</a></li>
-				<li><a href="#0">Register</a></li>
+				<li><a href="#0" id="log">Login</a></li>
+				<li><a href="#0" id="reg">Register</a></li>
 			</ul>
 
 			<div id="cd-login"> <!-- log in form -->
@@ -94,7 +94,7 @@ function validateLogin() {
         alert("Name must be filled out");
         return false;
     }
-     window.location = "./admin/admin.html";
+     window.location = "http://www.tcktr.tk/tcktr/admin/admin.html";
 }
 
     function validateRegister() {
@@ -113,7 +113,7 @@ function validateLogin() {
         alert("Passwords must match");
         return false;
     }
-     window.location = "./admin/admin.html";
+     window.location = "http://www.tcktr.tk/tcktr/admin/admin.html";
 }
 </script>
     

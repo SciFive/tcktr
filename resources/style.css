@@ -4,23 +4,14 @@ body {
 	background: url(./redStripes.png);
 	font-family: 'Raleway', sans-serif;
 	font-weight: 400;
-	color: #FFFFFF;
-}
-
-#shows{
-    height: auto;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    border: 3px solid white;
+	color: white;
 }
 
 a.btn {
 	display: inline-block;
 	color: #666;
+    font-family: 'Raleway', sans-serif;
 	background-color: #eee;
-	font-size: 20px;
     margin-top: .25em;
 	padding: 10px 30px;
 	border-radius: 5px;
@@ -30,28 +21,53 @@ a.btn {
 	border-bottom-width: 3px;
 }
 
+div.main-nav{
+    margin-right: 40%;
+}
+
+#shows{
+    color:#260000;
+    height: auto;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 2.5px solid white;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
 #admins{
-    height: 20%;
+    color:#260000;
+    height: auto;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1em;
     padding-top: .5em;
+    padding-bottom: 3em;
     text-align: center;
-    border: 3px solid white;
+    border: 2.5px solid white;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 h1 {
 	font-family: 'Waiting for the Sunrise', cursive;
 	font-size: 50px;
 	text-align: center;
+    color:white;
 }
 
 h2 {
+    font-family: 'Raleway', sans-serif;
+    color: black;
 	text-align: center;
-	margin-bottom: 40px;
-	font-weight: 400;
+	margin-bottom: 30px;
 	letter-spacing: 1px;
+}
+
+h3{
+    font-family: 'Raleway', sans-serif;
+    color: black;
 }
 
 #catchLine {
@@ -76,6 +92,37 @@ h2 {
     width: 100em;
     margin: auto;
 }
+
+a{
+    text-decoration:none;
+    color: white;
+}
+
+#login{
+   width: 40em;
+   margin: auto;
+   align-content: auto;
+   border: 1px solid white;
+}
+
+#register{
+   margin-left: auto;
+    margin-right: auto;
+    padding-left: 5em;
+    padding-right: 3em;
+    padding-bottom: 2em;
+   width: 35em;
+    border: 2px solid white;
+    margin-top: 10%;
+}
+
+#submit{
+    width: 6em;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 ul#dropdown li {
   white-space:normal;
   display: inline-block;
@@ -99,10 +146,16 @@ ul#dropdown li:hover {
   color: #32070e;
   font-weight: bold;
 }
+
+ul#dropdown li:hover a{
+  color: #32070e;
+  font-weight: bold;
+}
+
 ul#dropdown li ul {
   padding: 0;
   position: absolute;
-  top: 92px;
+  top: 90px;
   left: 0;
   width: 150px;
   -webkit-box-shadow: none;
@@ -189,4 +242,16 @@ ul#dropdown li:hover ul {
 	background: #FFFFFF;
 	color: #32070e;
 	font-weight: bold;
+}
+
+.cd-user-modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s 0, visibility 0 0.3s;
+}
+ 
+.cd-user-modal.is-visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s 0, visibility 0 0;
 }

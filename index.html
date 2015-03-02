@@ -5,6 +5,8 @@
 <head>
 	<title>tcktr</title>
 	<link rel="stylesheet" type="text/css" href="./resources/style.css"/>
+	<link rel="stylesheet" href="./resources/login-signup-modal-window/css/style.css"> 
+	<script src="./resources/login-signup-modal-window/js/modernizr.js"></script> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body>
@@ -16,9 +18,107 @@
         <p><a href="./user/user.html" class="btn">Click Here</a></p>
     </div>
     <div id="admins"><h3>Admin?</h3>
-        <p><a href="./admin/admin.html" class="btn">Login/Register</a></p>
+        <div class="main-nav">
+	       <a class="cd-signin" href="#0">Login</a>
+		   <a class="cd-signup" href="#0">Register</a>
+        </div>
     </div>
+
+	<div class="cd-user-modal"> 
+		<div class="cd-user-modal-container"> 
+			<ul class="cd-switcher">
+				<li><a href="#0">Login</a></li>
+				<li><a href="#0">Register</a></li>
+			</ul>
+
+			<div id="cd-login"> <!-- log in form -->
+				<form name ="login" class="cd-form" onsubmit="return validateLogin()" method="post">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signin-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail" name="email">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signin-password">Password</label>
+						<input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password" name=pass>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width" type="submit" value="Login">
+					</p>
+				</form>
+			</div>
+
+			<div id="cd-signup"> <!-- sign up form -->
+				<form class="cd-form" name="register" onsubmit="return validateRegister()" method="post">
+					<p class="fieldset">
+						<label class="image-replace cd-username" for="signup-username">Username</label>
+						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" name="user">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signup-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail" name="email">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signup-password">Password</label>
+						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password" name="password">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+                    
+                    <p class="fieldset">
+						<label class="image-replace cd-password" for="signup-password">Confirm Password</label>
+						<input class="full-width has-padding has-border" id="signup-password" type="password" placeholder="Confirm Password" name="pass2">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Create account">
+					</p>
+				</form>
+			</div> 
+			<a href="#0" class="cd-close-form">Close</a>
+		</div> 
+	</div> 
+    
+    <script>
+
+function validateLogin() {
+    var x = document.forms["login"]["username"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+     window.location = "./admin/admin.html";
+}
+
+    function validateRegister() {
+    var x = document.forms["register"]["user"].value;
+    if (x == null || x == "") {
+        alert("Please select a longer username");
+        return false;
+    }
+    var y = document.forms["register"]["password"].value;
+    var y2 = document.forms["register"]["pass2"].value;
+    if (y == null || y == "" || y.length<8) {
+        alert("Please select a longer password");
+        return false;
+    }
+    if (y!=y2) {
+        alert("Passwords must match");
+        return false;
+    }
+     window.location = "./admin/admin.html";
+}
+</script>
+    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> 
+    <script src="./resources/login-signup-modal-window/js/main.js"></script>
     </body>
 </html>

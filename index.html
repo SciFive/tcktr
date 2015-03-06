@@ -32,7 +32,7 @@
 			</ul>
 
 			<div id="cd-login"> <!-- log in form -->
-				<form class="cd-form" name="login">
+				<form class="cd-form" name="login" onsubmit="validateLogin()">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">E-mail</label>
 						<input class="full-width has-padding has-border" id="signin-email" type="text" placeholder="E-mail" name="email">
@@ -49,7 +49,7 @@
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width" type="submit" value="Login" onclick=' document.location.href= "http://www.tcktr.tk/tcktr/admin/admin.html";'>
+						<input class="full-width" type="submit" value="Login">
 					</p>
 				</form>
 				
@@ -57,7 +57,7 @@
 			</div> <!-- cd-login -->
 
 			<div id="cd-signup"> <!-- sign up form -->
-				<form class="cd-form">
+				<form class="cd-form" onsubmit="validateRegister()">
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Username</label>
 						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
@@ -79,7 +79,7 @@
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Create account" onclick=' document.location.href= "http://www.tcktr.tk/tcktr/admin/admin.html";'>
+						<input class="full-width has-padding" type="submit" value="Create account">
 					</p>
 				</form>
 			</div> <!-- cd-signup -->
@@ -105,6 +105,7 @@
 	</div> <!-- cd-user-modal -->
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/resources/validate.js"></script>
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> 
     <script src="./resources/login-signup-modal-window/js/main.js"></script>
     </body>

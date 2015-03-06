@@ -1,5 +1,6 @@
 function validateLogin() {
         var x = document.forms["login"]["email"].value;
+        console.log(x);
         if (x == null || x == "") {
             alert("Email required");
             return false;

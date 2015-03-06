@@ -1,4 +1,5 @@
 function validateLogin() {
+        console.log("Test");
         var x = document.forms["login"]["email"].value;
         console.log(x);
         if (x == null || x == "") {

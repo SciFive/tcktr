@@ -1,0 +1,3 @@
+#secure ssh key files for logging in to ec2
+*.ppk
+*.pem

@@ -1,10 +1,16 @@
-function validateLogin(form)
-  {
-    // validation fails if the input is blank
-    if(form.email.value == "") {
-      alert("Error: Input is empty!");
-      form.email.focus();
-      return false;
+function validateLogin() {
+        console.log("Test");
+        var x = document.forms["login"]["email"].value;
+        console.log(x);
+        if (x == null || x == "") {
+            alert("Email required");
+            return false;
+        }
+        else{ //NEEDS WORK- WON'T REDIRECT
+            alert("success");
+            window.location.href= "http://www.tcktr.tk/tcktr/admin/admin.html";
+            return false;
+        }
     }
       
       window.location.href= "http://www.tcktr.tk/tcktr/admin/admin.html";

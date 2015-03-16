@@ -22,7 +22,7 @@ input:required:invalid, input:focus:invalid {
     padding: 0;
 }
 
-form{
+#form1{
     height: 1.3em;
     margin: 0em;
 }
@@ -128,9 +128,22 @@ h3{
 }
 
 #dropdown {
- float: left;
+ width: 700px;
+ margin:auto;
  list-style-type: none;
- margin-left: 2.6em;
+}
+
+#ad_drop{
+    margin-bottom: -7em;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ad_btn1{
+    padding: .4em;
+    position: relative;
+    top:-4;
 }
 
 a{
@@ -243,7 +256,7 @@ ul#dropdown li:hover ul {
 
 #seats {
 	width: 700px;
-	float: right;
+	margin:auto;
 	border-collapse: collapse;
 }
 

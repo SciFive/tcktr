@@ -27,6 +27,14 @@ form{
     margin: 0em;
 }
 
+#desc{
+    margin-top: .2em;
+    width: 80%;
+    height: 10em;
+    border: solid 2px white;
+    font-size: .8em;
+}
+
 a.btn {
 	display: inline-block;
 	color: #666;

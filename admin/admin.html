@@ -20,7 +20,7 @@
             <li>Upcoming Shows<ul><li>Show 1</li><li>Show 2</li><li>See More</li></ul></li>
 			<li>Account Summary<ul><li>Payments</li><li>Mailing List</li></ul></li>
 		</ul>
-        <div class="profile"><div id="name">[insert theatre name here]</div><div id="profilepic">Image Gallery</div></div>
+        <div class="profile"><div id="name">[insert theatre name here]</div><div id="profilepic">Image Gallery</div><div id="desc">[insert desription here]</div></div>
 
 	</div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -28,6 +28,9 @@
        $(document).ready(function(){
             $( "#name" ).click(function() {
                $(this).html("<form action=''> <input id='n1' name='n1' value='[insert theatre name here]' type='text'> <input type='submit' value='Save'></form>" );
+            });
+           $( "#desc" ).click(function() {
+               $(this).html("<form action=''> <input id='n1' name='n1' value='[insert description here]' type='text'> <input type='submit' value='Save'></form>" );
             });
            $( "#profilepic" ).click(function() {
                $(this).html(' Image Gallery<form action="upload.php" method="post" enctype="multipart/form-data">Select image to upload:<input type="file" name="fileToUpload" id="fileToUpload"><input type="submit" value="Upload Image" name="submit"></form>' );

@@ -7,9 +7,26 @@ body {
 	color: white;
 }
 input:required:invalid, input:focus:invalid {
-  /* insert your own styles for invalid form input */
   -moz-box-shadow: none;
 }
+
+#name{
+    width: 80%;
+    border: 2px white solid;
+}
+
+#n1{
+    height: 1.3em;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+form{
+    height: 1.3em;
+    margin: 0em;
+}
+
 a.btn {
 	display: inline-block;
 	color: #666;

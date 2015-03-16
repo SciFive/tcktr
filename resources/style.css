@@ -6,7 +6,10 @@ body {
 	font-weight: 400;
 	color: white;
 }
-
+input:required:invalid, input:focus:invalid {
+  /* insert your own styles for invalid form input */
+  -moz-box-shadow: none;
+}
 a.btn {
 	display: inline-block;
 	color: #666;
@@ -209,7 +212,7 @@ ul#dropdown li:hover ul {
 #profilepic{
     font-size: .7em;
     margin-top: 1em;
-    width: 0%;
+    width: 80%;
     height: 10em;
     border: 1px solid white ; 
 }

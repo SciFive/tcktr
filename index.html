@@ -32,15 +32,15 @@
 			</ul>
 
 			<div id="cd-login"> <!-- log in form -->
-				<form class="cd-form" name="login" onsubmit="validateLogin()">
+				<form class="cd-form" action="form-handler" onsubmit="return validateLogin(this)" method="post">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signin-email" type="text" placeholder="E-mail" name="email">
+						<input class="full-width has-padding has-border" id="signin-email" type="text" placeholder="E-mail" name="email" required>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signin-password">Password</label>
-						<input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password">
+						<input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password" required>
 					</p>
 
 					<p class="fieldset">
@@ -49,7 +49,7 @@
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width" type="submit" value="Login">
+						<input class="full-width" type="submit" value="Login" onclick="location.href = 'admin/admin.html';">
 					</p>
 				</form>
 				
@@ -57,20 +57,20 @@
 			</div> <!-- cd-login -->
 
 			<div id="cd-signup"> <!-- sign up form -->
-				<form class="cd-form" onsubmit="validateRegister()">
+				<form class="cd-form" onsubmit="return validateRegister()" method="post">
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
+						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" required>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="text" placeholder="E-mail">
+						<input class="full-width has-padding has-border" id="signup-email" type="text" placeholder="E-mail" required>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password">
+						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password" required>
 					</p>
 
 					<p class="fieldset">
@@ -79,7 +79,7 @@
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Create account">
+						<input class="full-width has-padding" type="submit" value="Create account" onclick="location.href = 'admin/admin.html';">
 					</p>
 				</form>
 			</div> <!-- cd-signup -->
@@ -90,7 +90,7 @@
 				<form class="cd-form" action="./resources/reset.php" method="post">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="reset-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="reset-email" name="reset-email" type="email" placeholder="E-mail">
+						<input class="full-width has-padding has-border" id="reset-email" name="reset-email" type="email" placeholder="E-mail" required>
 					</p>
 
 					<p class="fieldset">

@@ -1,15 +1,16 @@
-function validateLogin() {
-        var x = document.forms["login"]["email"].value;
-        if (x == null || x == "") {
-            alert("Email required");
-            return false;
-        }
-        else{ //NEEDS WORK- WON'T REDIRECT
-            alert("success");
-            window.location.href= "http://www.tcktr.tk/tcktr/admin/admin.html";
-            return false;
-        }
+function validateLogin(form)
+  {
+    // validation fails if the input is blank
+    if(form.email.value == "") {
+      alert("Error: Input is empty!");
+      form.email.focus();
+      return false;
     }
+      
+      window.location.href= "http://www.tcktr.tk/tcktr/admin/admin.html";
+    // validation was successful
+    return true;
+  }
 
 function validateRegister() {
         var x = document.forms["register"]["user"].value;
@@ -29,5 +30,5 @@ function validateRegister() {
         }
         alert("success");
          window.location.href= "http://www.tcktr.tk/tcktr/admin/admin.html";
-        return false;
+        return true;
     }

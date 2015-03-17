@@ -21,20 +21,46 @@
 			<li>Account Summary<ul><li>Payments</li><li>Mailing List</li></ul></li>
 		</ul>
             </div>
-        <div class="profile"><div id="name">[insert theatre name here]</div><div id="profilepic">Image Gallery</div><div id="desc">[insert desription here]</div></div>
+        <div class="profile">
+            <div id="name">[insert theatre name here]</div>
+            <div id="profilepic">
+            <h4>Image Gallery</h4>    
+            <ul class="bxslider">
+              <li><img src="http://placehold.it/500x180" /></li>
+              <li><img src="http://placehold.it/500x180" /></li>
+              <li><img src="http://placehold.it/500x180" /></li>
+              <li><img src="http://placehold.it/500x180" /></li>
+              <li><img src="http://placehold.it/500x180" /></li>
+              <li><img src="http://placehold.it/500x180" /></li>
+            </ul>
+                <a id="profilepick">Edit</a>
+            </div>
+            <div id="desc">[insert desription here]</div>
+        </div>
 
 	</div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="../resources/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <link href="../resources/jquery.bxslider/jquery.bxslider.css" rel="stylesheet" />
     <script>
        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+                  minSlides: 3,
+                  maxSlides: 2,
+                  slideWidth: 300,
+                  ticker: true,
+                  speed: 15000,
+                  slideMargin: 10
+                });
             $( "#name" ).click(function() {
                $(this).html("<form action='' id='form1'> <input id='n1' name='n1' value='[insert theatre name here]' type='text'> <input type='submit' value='Save' id='ad_btn1'></form>" );
             });
            $( "#desc" ).click(function() {
                $(this).html("<form action=''> <input id='n1' name='n1' value='[insert description here]' type='text'> <input type='submit' value='Save'></form>" );
             });
-           $( "#profilepic" ).click(function() {
-               $(this).html(' Image Gallery<form action="upload.php" method="post" enctype="multipart/form-data">Select image to upload:<input type="file" name="fileToUpload" id="fileToUpload"><input type="submit" value="Upload Image" name="submit"></form>' );
+           $( "#profilepick" ).click(function() {
+               $(this).html('<form action="upload.php" method="post" enctype="multipart/form-data">Select image to upload:<input type="file" name="fileToUpload" id="fileToUpload"><input type="submit" value="Upload Image" name="submit"></form>' );
             });
            
             $("form").submit(function(){

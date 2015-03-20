@@ -32,7 +32,7 @@
 			</ul>
 
 			<div id="cd-login"> <!-- log in form -->
-				<form class="cd-form" action="form-handler" onsubmit="return validateLogin(this)" method="post">
+				<form name = "login" class="cd-form" action="form-handler" method="post">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">E-mail</label>
 						<input class="full-width has-padding has-border" id="signin-email" type="text" placeholder="E-mail" name="email" required>
@@ -49,7 +49,7 @@
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width" type="submit" value="Login" onclick="location.href = 'admin/admin.html';">
+						<input class="full-width" type="submit" value="Login" onclick="validateLogin()" >
 					</p>
 				</form>
 				
@@ -57,20 +57,20 @@
 			</div> <!-- cd-login -->
 
 			<div id="cd-signup"> <!-- sign up form -->
-				<form class="cd-form" onsubmit="return validateRegister()" method="post">
+				<form class="cd-form" name ="register" method="post">
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" required>
+						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" name="user" required>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="text" placeholder="E-mail" required>
+						<input class="full-width has-padding has-border" id="signup-email" type="text" name="email" placeholder="E-mail" required>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password" required>
+						<input class="full-width has-padding has-border" id="signup-password" type="password"  name="password" placeholder="Password" required>
 					</p>
 
 					<p class="fieldset">
@@ -79,7 +79,7 @@
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Create account" onclick="location.href = 'admin/admin.html';">
+						<input class="full-width has-padding" type="submit" value="Create account" onclick="validateRegister()">
 					</p>
 				</form>
 			</div> <!-- cd-signup -->

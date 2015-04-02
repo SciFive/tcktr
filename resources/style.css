@@ -15,6 +15,16 @@ input:required:invalid, input:focus:invalid {
     border: 2px white solid;
 }
 
+.container2{
+    border: 1px solid white ;
+    height: auto;
+    margin-top: 140px;
+    margin-bottom: 2em;
+    padding-left: 4em;
+    padding-top: 1.5em;
+    font-size: 1.5em;
+}
+
 #n1{
     height: 1.3em;
     font-size: 1em;
@@ -29,6 +39,7 @@ input:required:invalid, input:focus:invalid {
 
 #desc{
     margin-top: .2em;
+    margin-bottom: 1em;
     width: 85%;
     height: 10em;
     border: solid 2px white;
@@ -123,19 +134,19 @@ h3{
 }
 
 #mainContainer {
-	width: 70%;
+	width: 90%;
     height: 90%;
 	margin-left: auto;
 	margin-right: auto;
 }
 body{
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 
-@media only screen and (width: 950px) {
+@media only screen and (max-width: 950px) {
   #mainContainer{
-    width:95%;
+    width:100%;
   }
   ul#dropdown li{
     font-size: .9em;

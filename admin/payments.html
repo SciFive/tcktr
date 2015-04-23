@@ -4,23 +4,30 @@
 
 <head>
 	<title>tcktr</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="../resources/style.css"/>
     <link rel="shortcut icon" href="../resources/favicon.ico" type="png" />
 </head>
 
 <body>
 
-    <h1><a href="admin.html">tcktr</a></h1>
     <div id="title"><h2>Payments</h2></div>
 	<div id="mainContainer">
 
 		<p id="catchLine">Your box office on-the-go</p>
-        <div id="ad_drop">
-		<ul id="dropdown">
-            <li><a href="manager.html">Ticket Manager</a></li>
-            <li><a href="shows.html">Upcoming Shows</a></li>
-            <li>Account Summary<ul><li>Payments</li><li><a href="mailing.html">Mailing List</a></li></ul></li>
-		</ul>
+        <div class="header">
+            <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+                <a class="pure-menu-heading" href="admin.html">tcktr</a>
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="manager.html">Ticket Manager</a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="shows.html">Upcoming Shows</a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="payments.html">Payments</a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="mailing.html">Mailing List</a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="../index.html">Logout</a></li>
+                </ul>
+            </div>
         </div>
         <div class="container2"> <!--jQuery to add or remove shows -->
             <div id="name">Check in with PayPal</div>

@@ -1,26 +1,21 @@
 @import url(http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise|Open+Sans:400italic,700italic,700,400|Raleway:500,600,400);
 
-body {
-	background: url(./redStripes.png);
-	font-family: 'Raleway', sans-serif;
-	font-weight: 400;
-	color: white;
-}
 input:required:invalid, input:focus:invalid {
   -moz-box-shadow: none;
 }
 
 #name{
     width: 85%;
-    border: 2px white solid;
+    padding: .5em;
+    border: 2px #6FBEF3 solid;
 }
 
 .container2{
-    border: 1px solid white ;
     height: auto;
-    margin-top: 140px;
+    margin-top: 2em;
     margin-bottom: 2em;
-    padding-left: 4em;
+    margin-right: auto;
+    margin-left: 4em;
     padding-top: 1.5em;
     font-size: 1.5em;
 }
@@ -40,9 +35,10 @@ input:required:invalid, input:focus:invalid {
 #desc{
     margin-top: .2em;
     margin-bottom: 1em;
+    padding: .5em;
     width: 85%;
     height: 10em;
-    border: solid 2px white;
+    border: solid 2px #6FBEF3;
     font-size: .8em;
 }
 
@@ -50,58 +46,16 @@ input:required:invalid, input:focus:invalid {
    height: 4em;
 }
 
-a.btn {
-	display: inline-block;
-	color: #666;
-    font-family: 'Raleway', sans-serif;
-	background-color: #eee;
-    margin-top: .25em;
-	padding: 10px 30px;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border: 1px solid rgba(0,0,0,0.3);
-	border-bottom-width: 3px;
-}
-
-#shows{
-    color:#260000;
-    height: auto;
-    width: 65%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    border: 2.5px solid white;
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-#admins{
-    color:#260000;
-    height: auto;
-    width: 65%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1em;
-    padding-top: .5em;
-    padding-bottom: 4em;
-    text-align: center;
-    border: 2.5px solid white;
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
 #title{
-    color:white;
     font-family: 'Raleway', sans-serif;
 	text-align: center;
 	font-size: 1.2em;
-	text-align: center;
+	margin-top: 5em;
 }
 
 h1 {
-	font-family: 'Waiting for the Sunrise', cursive;
 	font-size: 50px;
 	text-align: center;
-    color:white;
 }
 
 h2 {
@@ -114,6 +68,214 @@ h2 {
 h3{
     font-family: 'Raleway', sans-serif;
     color: black;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.7em;
+    color: #7f8c8d;
+    font-size: 13px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #34495e;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+ * -- LAYOUT STYLES --
+ */
+.l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    padding: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+    text-align: center;
+}
+
+
+/*
+ * -- MENU STYLES --
+ */
+
+.home-menu {
+    padding: 0.5em;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+}
+.home-menu {
+    background: #2d3e50;
+}
+.pure-menu.pure-menu-fixed {
+    border-bottom: none;
+    z-index: 4;
+}
+
+.home-menu .pure-menu-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 120%;
+}
+
+.pure-menu-horizontal.pure-menu-scrollable .pure-menu-list {
+  padding-right: 2em;
+}
+
+.home-menu .pure-menu-selected a {
+    color: white;
+}
+
+.home-menu a {
+    color: #6FBEF3;
+}
+.home-menu li a:hover,
+.home-menu li a:focus {
+    background: none;
+    border: none;
+    color: #AECFE5;
+}
+
+
+/*
+ * -- MAIN TITLE STYLE --
+ */
+
+.splash-container {
+    background: #1f8dd6;
+    z-index: 1;
+    overflow: hidden;
+    width: 100%;
+    height: 88%;
+    top: 0;
+    left: 0;
+    position: fixed !important;
+}
+
+.splash {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 100px; left: 0; bottom: 0; right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.splash-head {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: 3px solid white;
+    padding: 1em 1.6em;
+    font-weight: 100;
+    border-radius: 5px;
+    line-height: 1em;
+}
+
+.splash-subhead {
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+/*
+ * -- CONTENT STYLES --
+ */
+.content-wrapper {
+    /* These styles are required for the "scroll-over" effect */
+    position: absolute;
+    top: 87%;
+    width: 100%;
+    min-height: 12%;
+    z-index: 2;
+    background: white;
+
+}
+
+.content-head {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 2em 0 1em;
+}
+
+.content-head-ribbon {
+    color: white;
+}
+
+.content-subhead {
+    color: #1f8dd6;
+}
+.content-subhead i {
+    margin-right: 7px;
+}
+
+.ribbon {
+    background: #2d3e50;
+    color: #aaa;
+}
+
+.footer {
+    background: #111;
+}
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ */
+@media (min-width: 48em) {
+    body {
+        font-size: 16px;
+    }
+    .content {
+        padding: 1em;
+    }
+
+    .home-menu {
+        text-align: left;
+    }
+        .home-menu ul {
+            float: right;
+        }
+
+    .splash {
+        width: 50%;
+        height: 50%;
+    }
+
+    .splash-head {
+        font-size: 250%;
+    }
+    .l-box-lrg {
+        border: none;
+    }
+
+}
+
+@media (min-width: 78em) {
+    /* We increase the header font size even more */
+    .splash-head {
+        font-size: 300%;
+    }
 }
 
 #catchLine {
@@ -139,62 +301,6 @@ h3{
 	margin-left: auto;
 	margin-right: auto;
 }
-body{
-    width: 80%;
-    margin: auto;
-}
-
-@media only screen and (max-width: 950px) {
-  #mainContainer{
-    width:100%;
-  }
-  ul#dropdown li{
-    font-size: .9em;
-    padding: 0;
-  }
-}
-
-#dropdown {
- width: 700px;
- margin:auto;
- list-style-type: none;
-}
-
-#ad_drop{
-    margin-bottom: -7em;
-    width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#ad_btn1{
-    padding: .4em;
-    position: relative;
-    top:-4;
-}
-
-a{
-    text-decoration:none;
-    color: white;
-}
-
-#login{
-   width: 40em;
-   margin: auto;
-   align-content: auto;
-   border: 1px solid white;
-}
-
-#register{
-   margin-left: auto;
-    margin-right: auto;
-    padding-left: 5em;
-    padding-right: 3em;
-    padding-bottom: 2em;
-   width: 35em;
-    border: 2px solid white;
-    margin-top: 10%;
-}
 
 #submit{
     width: 6em;
@@ -203,71 +309,8 @@ a{
     margin-right: auto;
 }
 
-ul#dropdown li {
-  white-space:normal;
-  display: inline-block;
-  position: relative;
-  padding: 15px 20px;
-  height: 60px;
-  letter-spacing: 5px;
-  padding-left: 25px;
-  padding-right: 25px;
-  text-align: center;
-  width: 7em;
-  margin-bottom: 5px;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  transition: all 0.2s;
-}
-ul#dropdown li:hover {
-  background: #FFFFFF;
-  color: #32070e;
-  font-weight: bold;
-}
-
-ul#dropdown li:hover a{
-  color: #32070e;
-  font-weight: bold;
-}
-
-ul#dropdown li ul {
-  padding: 0;
-  position: absolute;
-  top: 90px;
-  left: 0;
-  width: 100%;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -ms-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  -transition: opacity 0.2s;
-}
-ul#dropdown li ul li { 
-  background: #555; 
-  display: block; 
-  color: #fff;
-  height: 2em;
-  width: auto;
-  text-shadow: 0 -1px 0 #000;
-}
-ul#dropdown li ul li:hover { background: #666; }
-ul#dropdown li:hover ul {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-}
-
 .profile{
-    border: 1px solid white ;
-    height: 20em;
+    height: auto;
     margin-top: 140px;
     padding-left: 4em;
     padding-top: 1.5em;
@@ -276,12 +319,15 @@ ul#dropdown li:hover ul {
 .bxslider{
     margin-top: -.1em;
 }
+.bx-wrapper{
+    height: 1em;
+}
 #profilepic{
     font-size: .7em;
-    margin-top: 1em;
+    padding-top: .5em;
+    padding-bottom: 1em;
     width: 85%;
     height: auto;
-    border: 1px solid white ;
     text-align: center;
 }
 
@@ -318,4 +364,9 @@ ul#dropdown li:hover ul {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.3s 0, visibility 0 0;
+}
+
+.main-nav{
+    width: 10em;
+    margin: auto;
 }

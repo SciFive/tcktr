@@ -4,27 +4,112 @@
 
 <head>
 	<title>tcktr</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="./resources/style.css"/>
 	<link rel="stylesheet" href="./resources/login-signup-modal-window/css/style.css"> 
     <link rel="shortcut icon" href="resources/favicon.ico" type="png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body>
-	<h1>tcktr</h1>  
-    <div id="shows"><h2>Upcoming Shows and Local Theatres</h2>
-        <p>Find out more about shows in your area now!</p>
-        <p>Book tickets, search for shows, and find theatres in your area.</p>
-        <p>For more information...</p>
-        <p><a href="./user/user.html" class="btn">Click Here</a></p>
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed pure-menu-scrollable">
+            <a class="pure-menu-heading" href="">tcktr</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="./user/user.html" class="pure-menu-link">Find Shows</a></li>
+                <li class="pure-menu-item"><a href="#logreg" class="pure-menu-link">Login/Register</a></li>
+                <li class="pure-menu-item"><a href="./user/about.html">About Us</a></li>
+            </ul>
+        </div>
     </div>
-    <div id="admins"><h3>Admin?</h3>
-        <p>Monitor ticket sales, trending shows, and much more!</p>
-        <div class="main-nav">
-	       <a class="cd-signin" href="#0">Login/Register</a>
+    <div class="splash-container">
+        <div class="splash">
+            <h1 class="splash-head">tcktr</h1>
+            <p class="splash-subhead">
+                Revolutionizing the theatre industry with the open source box office on-the-go.
+            </p>
+            <p>
+                <a href="./user/about.html" class="pure-button pure-button-primary">Learn More</a>
+            </p>
         </div>
     </div>
 
-	<div class="cd-user-modal"> 
+    <div class="content-wrapper">
+        <div class="content">
+            <h2 class="content-head is-center">Quick Overview</h2>
+
+            <div class="pure-g">
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                    <h3 class="content-subhead">
+                        <i class="fa fa-users"></i>
+                        Moviegoers
+                    </h3>
+                    <p>
+                        Take the first step to discover new, hidden gems in your area with our unique application. Support local                                     theatres and enjoy the show!
+                    </p>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                    <h3 class="content-subhead">
+                        <i class="fa fa-mobile"></i>
+                        Mobile Friendly
+                    </h3>
+                    <p>
+                        Compatible with PayPal mobile payments. Making on-the-go payments quick and easy for moviegoers and theatres.
+                    </p>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                    <h3 class="content-subhead">
+                        <i class="fa fa-th-large"></i>
+                        Modular
+                    </h3>
+                    <p>
+                        Administrator widget is compact, customizable, and easy to integrate into existing theatre box-office systems.
+                    </p>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                    <h3 class="content-subhead">
+                        <i class="fa fa-code"></i>
+                        Open Source
+                    </h3>
+                    <p>
+                        Easily accessible source code made available to anyone and everyone.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    <div class="ribbon l-box-lrg pure-g">
+        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+            <img class="pure-img-responsive" alt="File Icons" width="300" src="./resources/folder_movie.png">
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+            <h2 class="content-head content-head-ribbon">It's Showtime.</h2>
+            <p>
+                Bring your theatre to the next level with the analytics tools, management systems, and portable box office capabilites of                     tcktr. Find and compare prices at other local establishments, and enjoy the free, open-source service. 
+            </p>
+            <div class="main-nav">
+               <a class="cd-signin" name="logreg" href="#0">Login/Register</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="content">
+            <h2 class="content-head is-center">Get ready. Get set. Show.</h2>
+
+                <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                    <h4>Contact Us</h4>
+                    <p>
+                        For additional assitance, email: tcktr.customer.realtions@gmail.com 
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+    <!-- LOGIN POPUP -->
+    <div class="cd-user-modal"> 
 		<div class="cd-user-modal-container">
 			<ul class="cd-switcher">
 				<li><a href="#0">Login</a></li>
@@ -103,7 +188,14 @@
 			<a href="#0" class="cd-close-form">Close</a>
 		</div> <!-- cd-user-modal-container -->
 	</div> <!-- cd-user-modal -->
-    
+            
+            
+        <div class="footer l-box is-center">
+            Web Science Group 5
+        </div>
+
+    </div>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./resources/validate.js"></script>
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> 

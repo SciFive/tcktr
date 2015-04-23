@@ -10,7 +10,7 @@ function validateLogin() {
             return false;
         }
         else{ 
-            window.location.href= "http://www.tcktr.tk/tcktr/admin/admin.html";
+            window.location.href= "./admin/admin.html";
         }
     }
       
@@ -41,6 +41,6 @@ function validateRegister() {
             return false;
         }
 
-        window.location.href= "http://www.tcktr.tk/tcktr/admin/admin.html";
+        window.location.href= "./admin/admin.html";
         return true;
     }

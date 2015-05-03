@@ -1,9 +1,18 @@
+// TODO: (5) Comments here :)
 var fs = null; 
 try {
   fs = require('fs');
 } catch(e) {
   console.log('Not in kansas anymore...');
 }
+if (!localStorage.tcktr) {
+  localStorage.tcktr = {
+    "plots" : [],
+    "shows" : [],
+    "tickets" : []
+  }
+}
+
 // makeHousePlotDefault()
 // @does creates a default plot object 
 var makeHousePlotDefault = function() {
@@ -14,7 +23,7 @@ var makeHousePlotDefault = function() {
   };
 }
 
-// TODO: If time permits, add flow option
+// TODO: (10) If time permits, add flow option
 // makeHousePlot(displayID)
 // @displayID => id of container that will be used for making the house plot
 // @does creates a modular sized house plot with the ability to save, and displays in all mode
@@ -32,7 +41,7 @@ var makeHousePlot = function(displayID) {
   displayHousePlot("housePlot", makeHousePlotDefault(), "all");
 };
 
-// TODO: Add docs for inc state, et al
+// TODO: (5) Add docs for inc state, et al
 var incrementState = function(me, isClick, mode){
   if (mouseDown || isClick) {
     var i = Number(me.getAttribute("data-state"));
@@ -44,7 +53,7 @@ var incrementState = function(me, isClick, mode){
   }
 };
 
-// TODO: Add docs for house plot save
+// TODO: (5) Add docs for house plot save
 var saveHousePlot = function(displayID) {
   var container = document.getElementById(displayID);
   var tbody = container.children;
@@ -71,7 +80,7 @@ var saveHousePlot = function(displayID) {
 // @plot      => object with .x, .y, .data objects inside
 // @mode      => string mode of function (all, sold, unsold, reserved)
 var displayHousePlot = function(displayID, plot, mode) {
-  //TODO: Write algo for infinite lettering (A->Z, AA->AZ->ZZ, AAA->AAZ->AZZ->ZZZ, etc)
+  //TODO: (6) Write algo for infinite lettering (A->Z, AA->AZ->ZZ, AAA->AAZ->AZZ->ZZZ, etc)
   var alpha = " ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var container = document.getElementById(displayID);
   var innards =   '<table id="housePlotTable">';
@@ -91,15 +100,35 @@ var displayHousePlot = function(displayID, plot, mode) {
   innards += '</tbody></table>';
   container.innerHTML = innards;
 };
-// TODO: Make Show Function\n
-// TODO: Add Performance Function
-// TODO: Open Box Function / sell mode
-// TODO: Add print ticket function
-// TODO: Add print receipt function
 
+// TODO: (1) Make Show Function\n
+// TODO: (2) Add Performance Function
+// TODO: (3) Open Box Function / sell mode
+// TODO: (4) Add print ticket function
+// TODO: (4) Add print receipt function
+
+// TODO: (5) makeMenu docs
+var makeMenu = function(displayID) {
+  var container = document.getElementById(displayID);
+  var innards = "<div id='mainMenu'>";
+  links = [
+    { "t" : "Make House Plot", "o" : "makeHousePlot('" + displayID + "');"},
+    { "t" : "Make Show", "o" : "makeHousePlot('" + displayID + "');"},
+    { "t" : "Manager Performances", "o" : "makeHousePlot('" + displayID + "');"},
+    { "t" : "Open Boxoffice", "o" : "makeHousePlot('" + displayID + "');"},
+    { "t" : "Configure Settings", "o" : "makeHousePlot('" + displayID + "');"}
+  ];
+  for (var i = 0; i < links.length; ++i) {
+    innards += '<a href="#" onclick="' + links[i].o + '">' + links[i].t + '</a>';
+  }
+  innards += "</div>";
+  container.innerHTML = innards;
+}
+
+// TODO: (5) mouseDown docs
 var mouseDown = 0;
 window.onload = function() {
-  makeHousePlot("main");
+  makeMenu("main");
   document.body.onmousedown = function() {
     mouseDown = 1;
   }

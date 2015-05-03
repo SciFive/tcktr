@@ -1,0 +1,10 @@
+{
+  "name": "tcktr",
+  "main": "index.html",
+  "window" : {
+    "title" : "tcktr",
+    "toolbar" : false,
+    "position" : "center",
+    "icon": "./tcktr.png"
+  }
+}

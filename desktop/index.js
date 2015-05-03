@@ -32,9 +32,9 @@ var makeHousePlot = function(displayID) {
   var innards = '<div id="makeHouseController">';
   innards += '<p>Columns:<input type="number" name="width" id="width" onchange="displayHousePlot(\'housePlot\', makeHousePlotDefault(), \'all\');" value="10" min="1" required></p>';
   innards += '<p>Rows:<input type="number" name="height" id="height" onchange="displayHousePlot(\'housePlot\', makeHousePlotDefault(), \'all\');" value="5" min="1" required></p>';
+  innards += '<p>Filename:<input type="text" id="housePlotTitle"></p>'
   innards += '<button type="button" onclick="saveHousePlot(\'housePlotTableBody\')">Save</button>'; //initiate save dialogue
-  innards += '<span>Total Count: <span id="makeHousePlotCount">50</span></span>';
-  innards += '<input type="text" id="housePlotTitle">'
+  innards += '<span>Total: <span id="makeHousePlotCount">50</span></span>';
   innards += '</div>';
   innards += '<div id="housePlot"></div>';
   container.innerHTML = innards;
@@ -110,18 +110,18 @@ var displayHousePlot = function(displayID, plot, mode) {
 // TODO: (5) makeMenu docs
 var makeMenu = function(displayID) {
   var container = document.getElementById(displayID);
-  var innards = "<div id='mainMenu'>";
+  var innards = "<ul id='mainMenu'><h1>tcktr</h1><p>Behind the Scenes</p>";
   links = [
     { "t" : "Make House Plot", "o" : "makeHousePlot('" + displayID + "');"},
     { "t" : "Make Show", "o" : "makeHousePlot('" + displayID + "');"},
     { "t" : "Manager Performances", "o" : "makeHousePlot('" + displayID + "');"},
     { "t" : "Open Boxoffice", "o" : "makeHousePlot('" + displayID + "');"},
-    { "t" : "Configure Settings", "o" : "makeHousePlot('" + displayID + "');"}
+    { "t" : "Settings", "o" : "makeHousePlot('" + displayID + "');"}
   ];
   for (var i = 0; i < links.length; ++i) {
-    innards += '<a href="#" onclick="' + links[i].o + '">' + links[i].t + '</a>';
+    innards += '<li><a href="#" onclick="' + links[i].o + '">' + links[i].t + '</a></li>';
   }
-  innards += "</div>";
+  innards += "</ul>";
   container.innerHTML = innards;
 }
 

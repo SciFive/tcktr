@@ -1,67 +1,99 @@
-            table{
-                border: none;
-                padding: 0px;
-                margin: 0px;
-            }
-
+table{
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
         
+tr{
+    height: 100px;
+    border: 1px solid grey;
+}
 
-        
-            tr{
-                height: 100px;
-                border: 1px solid black;
-            }
+td{
+    width: 100px;
+    color:whitesmoke;
+    text-align: center;
+    vertical-align: middle;
+    border: inherit;
+    padding: 4px;
+    cursor: pointer;            
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+…
+}
 
+tr:first-of-type{
+    height: 20px;
+    border: none;
+}
         
-
+tr:first-of-type td{
+    background-color: white;
+    color: dimgray;
+}
         
-            td{
-                width: 100px;
-                text-align: center;
-                vertical-align: middle;
-                border: inherit;
-                padding: 4px;
-                cursor: pointer;
+tr > td:first-of-type{
+    width: 20px;
+    border: none;
+    background-color: white;
+    color: dimgray;
+}
 
                 
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
+td:hover{
+    opacity: .7;
 …
-            }
+}
 
-        
-            tr:first-of-type{
-                height: 20px;
-                border: none;
-            }
 
-        
-            tr:first-of-type td{
-                background-color: white;
-            }
+td[data-state='0']{ background-color:#617798; }
+td[data-state='1']{ background-color: black; color:black;}
+td[data-state='2']{ background-color:#617798; }
 
-        
-            tr > td:first-of-type{
-                width: 20px;
-                border: none;
-                background-color: white;
-            }
 
-        
+input{ 
+    padding: 9px; 
+    border: solid 1px #E5E5E5; 
+    outline: 0; 
+    font: normal 13px/100% Verdana, Tahoma, sans-serif; 
+    width: 5em; 
+    background: #FFFFFF; 
+} 
+   
+input:hover, textarea:hover, 
+input:focus, textarea:focus { 
+    border-color: #C9C9C9; 
+} 
+   
+.form label { 
+    margin-left: 10px; 
+    color: #999999; 
+} 
+   
+button { 
+    width: auto; 
+    padding: 9px 15px; 
+    background: #617798; 
+    border: 0; 
+    font-size: 14px; 
+    color: #FFFFFF; 
+}
 
-        
-            td:hover{
-                opacity: .7;
-…
-            }
+#makeHouseController{
+    float: left;
+    width: 4em;
+    color:dimgray;
+    margin: auto;
+    padding: 1em;
+    height: 100%;
+}
 
-        
-            td[data-state='0']{ background-color: green; }
-            td[data-state='1']{ background-color: black; }
-            td[data-state='2']{ background-color: green; }
-
-        
+#housePlot{
+    width:100%;
+    height: 100%;
+    padding-top: 1em;
+}

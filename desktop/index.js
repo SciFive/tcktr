@@ -21,8 +21,8 @@ var makeHousePlotDefault = function() {
 var makeHousePlot = function(displayID) {
   var container = document.getElementById(displayID);
   var innards = '<div id="makeHouseController">';
-  innards += '<input type="number" id="width" onchange="displayHousePlot(\'housePlot\', makeHousePlotDefault(), \'all\');" value="10">';
-  innards += '<input type="number" id="height" onchange="displayHousePlot(\'housePlot\', makeHousePlotDefault(), \'all\');" value="5">';
+  innards += '<p>Columns:<input type="number" name="width" id="width" onchange="displayHousePlot(\'housePlot\', makeHousePlotDefault(), \'all\');" value="10" min="1" required></p>';
+  innards += '<p>Rows:<input type="number" name="height" id="height" onchange="displayHousePlot(\'housePlot\', makeHousePlotDefault(), \'all\');" value="5" min="1" required></p>';
   innards += '<button type="button" onclick="saveHousePlot(\'housePlotTableBody\')">Save</button>'; //initiate save dialogue
   innards += '<span>Total Count: <span id="makeHousePlotCount">50</span></span>';
   innards += '<input type="text" id="housePlotTitle">'

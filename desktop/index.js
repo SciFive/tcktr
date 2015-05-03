@@ -1,3 +1,9 @@
+var fs = null; 
+try {
+  fs = require('fs');
+} catch(e) {
+  console.log('Not in kansas anymore...');
+}
 // makeHousePlotDefault()
 // @does creates a default plot object 
 var makeHousePlotDefault = function() {
@@ -19,6 +25,7 @@ var makeHousePlot = function(displayID) {
   innards += '<input type="number" id="height" onchange="displayHousePlot(\'housePlot\', makeHousePlotDefault(), \'all\');" value="5">';
   innards += '<button type="button" onclick="saveHousePlot(\'housePlotTableBody\')">Save</button>'; //initiate save dialogue
   innards += '<span>Total Count: <span id="makeHousePlotCount">50</span></span>';
+  innards += '<input type="text" id="housePlotTitle">'
   innards += '</div>';
   innards += '<div id="housePlot"></div>';
   container.innerHTML = innards;
@@ -50,6 +57,11 @@ var saveHousePlot = function(displayID) {
      row.push(innerChild[j].getAttribute('data-state'));
     }
     plot.data.push(row);
+  }
+  var filename = document.getElementById('housePlotTitle').value;
+  if (!filename || filename == '') filename = 'housePlot'; //in case it doesn't exist, don't want to go making assumptions
+  if (fs) {
+    fs.writeFile('./plots/' + filename + '.json', JSON.stringify(plot), {'flag':'w+'});
   }
   console.log(plot.data);
 }

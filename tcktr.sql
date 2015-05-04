@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `perform` (
 --
 
 INSERT INTO `perform` (`ID`, `date`, `numTickets`, `reserved`, `showID`) VALUES
-(1, '2015-05-28 11:00:00', 50, 90, 1),
+(1, '2015-05-28 11:00:00', 50, 0, 1),
 (2, '2015-05-29 14:00:00', 50, 0, 1);
 
 -- --------------------------------------------------------
@@ -63,15 +63,7 @@ CREATE TABLE IF NOT EXISTS `reservations` (
 --
 
 INSERT INTO `reservations` (`ID`, `fname`, `lname`, `email`, `numTicket`, `list`, `performID`) VALUES
-(1, 'Daniel', 'Ben-Chitrit', 'dibol13@gmail.com', 9, 'No', 1),
-(2, 'Daniel', 'Ben-Chitrit', '4', 9, 'No', 1),
-(3, 'Daniel', 'Ben-Chitrit', '4', 9, 'No', 1),
-(4, 'Daniel', 'Ben-Chitrit', '4', 9, 'No', 1),
-(5, 'Daniel', 'Ben-Chitrit', '4', 9, 'No', 1),
-(6, 'Daniel', 'Ben-Chitrit', '4', 9, 'No', 1),
-(7, 'Daniel', 'Ben-Chitrit', '4', 9, 'No', 1),
-(8, 'Daniel', 'Ben-Chitrit', '4', 9, 'No', 1),
-(9, 'Daniel', 'Ben-Chitrit', '4', 9, 'No', 1);
+(1, 'Daniel', 'Ben-Chitrit', 'dibol13@gmail.com', 9, 'No', 1);
 
 -- --------------------------------------------------------
 

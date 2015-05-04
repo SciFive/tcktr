@@ -1,34 +1,29 @@
 @import url(http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise|Open+Sans:400italic,700italic,700,400|Raleway:500,600,400);
 
-body{
-    background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 72%, rgba(0,0,0,0.25) 100%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0)), color-stop(72%,rgba(0,0,0,0.25)), color-stop(100%,rgba(0,0,0,0.25))); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 72%,rgba(0,0,0,0.25) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 72%,rgba(0,0,0,0.25) 100%); /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 72%,rgba(0,0,0,0.25) 100%); /* IE10+ */
-    background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 72%,rgba(0,0,0,0.25) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#40000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-}
 
 p{
-    margin-bottom: 1em;
-    padding-bottom: .5em;
-    border-bottom: solid 2px grey;
-    width: 50%;
-    margin: auto;
+    padding-bottom: .8em;
+    font-size: .8em;
+    text-align: center;
 }
 
-#main{
-    height: auto;
+#mainMenu{
+    height: 100%;
     font-size: 1.15em;
+    list-style: none;
     text-align: center;
+}
+
+.header{
+    color: dimgray;
 }
 
 h1 {
     font-family: 'Raleway', sans-serif;
-	text-align: center;
 	letter-spacing: 1px;
+    color: black;
+    border: solid 2px black;
+    margin-right: .5em;
 }
 
 
@@ -111,6 +106,7 @@ input:focus, textarea:focus {
 button { 
     width: auto; 
     padding: 9px 15px; 
+    margin-top: .5em;
     background: #617798; 
     border: 0; 
     font-size: 14px; 
@@ -130,11 +126,6 @@ button {
     width:100%;
     height: 100%;
     padding-top: 1em;
-}
-
-#mainMenu{
-    list-style: none;
-    text-align: center;
 }
 
 #mainMenu li{

@@ -196,9 +196,21 @@ var addPerformance = function() {
   loc.innerHTML += growth;
 };
 
-// TODO: (1) DO THIS REMOVE FUNC
+// TODO: (5) docs for remove
 var removeNode = function(id) {
+  document.getElementById(id).style.display = 'none';
+};
 
+var getPlot = function() {
+  return null;
+}
+// TODO: (5) Save Docs
+var saveShow = function() {
+  var show = {
+    "title" : document.getElementById('#makeShowFormTitle').value,
+    "assigned" : document.getElementById("makeShowFormAssigned").checked,
+    "plot" : document.getElementById("makeShowFormAssigned").checked ? getPlot() : null,
+  };
 };
 
 // TODO: (2) Make Show Function
@@ -229,7 +241,7 @@ var makeShow = function(displayID) {
   innards += "<input id='autocomplete' placeholder='Enter your address' type='text'></input>";
 
   innards += "<br>"; // TODO: (2) Remove me once Mary fixes styling
-  // TODO: (1) Add ticket types form
+
   // Select Ticket Type Menu
   innards += "<div id='makeShowFormTicketBox'>";
   innards += "<div id='makeShowFormTicketList'>";
@@ -237,12 +249,12 @@ var makeShow = function(displayID) {
   innards += "<button type='button' onclick='addTicket();')>Add Ticket Type</button>"; //initiate save dialogue
   innards += "</div>";
 
-  // TODO: (1) Add performances form
   innards += "<div id='makeShowFormPerformanceBox'>";
   innards += "<div id='makeShowFormPerformanceList'>";
   innards += "</div>";
   innards += "<button type='button' onclick='addPerformance();')>Add Performance Date</button>"; //initiate save dialogue
   innards += "</div>";
+
   // TODO: (1) Save button
   innards += "<button type='button' onclick='saveShow();')>Save</button>"; //initiate save dialogue
   innards += "</div>";

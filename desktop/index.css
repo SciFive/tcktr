@@ -28,19 +28,21 @@ h1 {
 
 table{
     border: none;
+    table-layout:fixed;
+    padding-right: 1em;
+    width:85%;
     height: 90%;
-    width: 85%;
+    overflow:hidden;
+    word-wrap:break-word;
 }
         
 tr{
     border: 1px solid white;
     height: auto;
     width: auto;
-    overflow: hidden;
 }
 
 td{
-    overflow: hidden;
     height: auto;
     width: auto;
     color:whitesmoke;
@@ -69,7 +71,6 @@ tr:first-of-type td{
 }
         
 tr > td:first-of-type{
-    width: 20px;
     border: none;
     background-color: white;
     color: dimgray;
@@ -78,7 +79,6 @@ tr > td:first-of-type{
                 
 td:hover{
     opacity: .7;
-…
 }
 
 
@@ -120,7 +120,6 @@ button {
     float: left;
     width: 4em;
     color:dimgray;
-    margin: auto;
     padding: 1em;
 }
 

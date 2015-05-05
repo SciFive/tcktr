@@ -79,7 +79,9 @@ var saveHousePlot = function(displayID) {
   if (fs) {
     fs.writeFile('./plots/' + filename + '.json', JSON.stringify(plot), {'flag':'w+'});
   }
-  localStorage.tcktr = JSON.stringify(JSON.parse(localStorage.tcktr).plots.push(plot));
+  var tcktr = JSON.parse(localStorage.tcktr);
+  tcktr.plots.push(plot);
+  localStorage.tcktr = JSON.stringify(tcktr);
   console.log(plot.data);
 }
 
@@ -151,26 +153,42 @@ function fillInAddress() {
     }
   }
 }
+// TODO: (5) Docs for togglePlots
+var togglePlots = function() {
+  var checkbox = document.getElementById("makeShowFormAssigned");
+  var plots = document.getElementById("plotsBox");
+  if(checkbox.checked) {
+    plots.style.display = 'inline';
+  }else {
+    plots.style.display = 'none';
+  }
+};
 
 // TODO: (1) Make Show Function
 var makeShow = function(displayID) {
   var container = document.getElementById(displayID);
-  var innards = "<form id='makeShowForm'>";
+  var innards = "<div id='makeShowForm'>";
   innards += "<label for='makeShowFormTitle'>Title:</label>";
   innards += "<input type='text' id='makeShowFormTitle'>";
-  innards += "<label for='makeShowFormPlot'>Plot:</label>";
+  innards += "<label><input type='checkbox' id='makeShowFormAssigned' onClick='togglePlots();'> Assigned Seating</label>"
+  innards += "<span id='plotsBox' style='display:none;'><label for='makeShowFormPlot'>Plot:</label>";
   innards += "<input type='text' id='makeShowFormPlot' list='plots'>";
   innards += "<datalist id='plots'>";
   var plots = JSON.parse(localStorage.tcktr).plots;
   for (var i = 0; i < plots.length; ++i) {
     innards += "<option value='" + plots[i].title + "'>"
   }
-  innards += "</datalist>"
+  innards += "</datalist></span>"
   innards += "<label for='makeShowFormCompany'>Company:</label>";
   innards += "<input type='text' id='makeShowFormCompany'>";
-  innards += "<label for='autocomplete'>Venue:</label>";
+  innards += "<label for='makeShowFormVenueName'>Venue Name:</label>";
+  innards += "<input type='text' id='makeShowFormVenueName'>";
+  innards += "<label for='autocomplete'>Venue Location:</label>";
   innards += "<input id='autocomplete' placeholder='Enter your address' type='text'></input>";
-  innards += "</form>";
+  // TODO: (1) Add ticket types form
+  // TODO: (1) Add performances form
+  // TODO: (1) Save button
+  innards += "</div>";
   container.innerHTML = innards;
   initialize(); //init google map lookup
 };
@@ -230,7 +248,7 @@ window.onload = function() {
     nw = false;
     console.log('Not in kansas anymore...');
   }
-  if (localStorage.tcktr) {
+  if (!localStorage.tcktr) {
     localStorage.tcktr = JSON.stringify({
       "plots" : [],
       "shows" : [],

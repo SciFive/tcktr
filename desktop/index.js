@@ -95,12 +95,12 @@ var displayHousePlot = function(displayID, plot, mode) {
   //TODO: (6) Write algo for infinite lettering (A->Z, AA->AZ->ZZ, AAA->AAZ->AZZ->ZZZ, etc)
   var alpha = " ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var container = document.getElementById(displayID);
-  var innards =   '<table id="housePlotTable">';
-  innards += '<tbody id="housePlotTableBody">';
+  var innards = '<table id="housePlotTable">';
+  innards += '<tbody id="housePlotTableBody">'; // all tables must have a tbody!
   if (mode == 'all') {
     for (var i = 0; i <= plot.y; ++i) {
       innards += '<tr>';
-      for (var j = 0; j <= plot.x; ++j) {
+      for (var j = 0; j <= plot.x; ++j) { // display proper seat identification if not the 0th element
         innards += "<td id = '" + (i ? alpha[(plot.y-i+1)%26] : "")  + (j ? j : "") + "'"
         if (i != 0 && j != 0) {
           innards += " onclick='incrementState(this, true, \"all\");'";
@@ -152,7 +152,8 @@ function fillInAddress() {
       document.getElementById(addressType).value = val;
     }
   }
-}
+};
+
 // TODO: (5) Docs for togglePlots
 var togglePlots = function() {
   var checkbox = document.getElementById("makeShowFormAssigned");
@@ -164,12 +165,49 @@ var togglePlots = function() {
   }
 };
 
-// TODO: (1) Make Show Function
+// TODO: (5) Docs for addTicket()
+var addTicket = function() {
+  var loc = document.getElementById('makeShowFormTicketList');
+  var id = loc.children.length;
+  var growth = "<div class='ticketType' id='ticketType" + id + "'>";
+  growth += "<label for='ticketText'>Ticket Name:</label>";
+  growth += "<input type='text' id='ticketText'>";
+  growth += "<label for='ticketPrice'>Ticket Price:</label>";
+  growth += "<input type='text' id='ticketPrice'>";
+  growth += "<label for='ticketAttributes'>Ticket Attributes:</label>";
+  growth += "<input type='text' id='ticketAttributes'>";
+  growth += "<button type='button' onclick='removeNode(\"ticketType" + id + "\");'>Remove</button>";  
+  growth += "</div>";
+  loc.innerHTML += growth;
+};
+
+// TODO: (5) Docs for addPerformance()
+var addPerformance = function() {
+  var loc = document.getElementById('makeShowFormPerformanceList');
+  var id = loc.children.length;
+  var growth = "<div class='performanceType id='performance" + id + "''>";
+  growth += "<label for='performanceText'>Performance Date / Time:</label>";
+  // TODO: (4) Add datetime picker! :(
+  growth += "<input type='text' id='performanceText'>";
+  growth += "<label for='performanceAttributes'>Performance Attributes:</label>";
+  growth += "<input type='text' id='performanceAttributes'>";
+  growth += "<button type='button' onclick='removeNode(\"performance" + id + "\");'>Remove</button>";  
+  growth += "</div>";
+  loc.innerHTML += growth;
+};
+
+// TODO: (1) DO THIS REMOVE FUNC
+var removeNode = function(id) {
+
+};
+
+// TODO: (2) Make Show Function
 var makeShow = function(displayID) {
   var container = document.getElementById(displayID);
   var innards = "<div id='makeShowForm'>";
   innards += "<label for='makeShowFormTitle'>Title:</label>";
   innards += "<input type='text' id='makeShowFormTitle'>";
+
   innards += "<label><input type='checkbox' id='makeShowFormAssigned' onClick='togglePlots();'> Assigned Seating</label>"
   innards += "<span id='plotsBox' style='display:none;'><label for='makeShowFormPlot'>Plot:</label>";
   innards += "<input type='text' id='makeShowFormPlot' list='plots'>";
@@ -179,18 +217,39 @@ var makeShow = function(displayID) {
     innards += "<option value='" + plots[i].title + "'>"
   }
   innards += "</datalist></span>"
+  // Show Company
   innards += "<label for='makeShowFormCompany'>Company:</label>";
   innards += "<input type='text' id='makeShowFormCompany'>";
+  // Show Venue Name
   innards += "<label for='makeShowFormVenueName'>Venue Name:</label>";
   innards += "<input type='text' id='makeShowFormVenueName'>";
+
+  // Venue Location with Google Maps AutoComplete
   innards += "<label for='autocomplete'>Venue Location:</label>";
   innards += "<input id='autocomplete' placeholder='Enter your address' type='text'></input>";
+
+  innards += "<br>"; // TODO: (2) Remove me once Mary fixes styling
   // TODO: (1) Add ticket types form
+  // Select Ticket Type Menu
+  innards += "<div id='makeShowFormTicketBox'>";
+  innards += "<div id='makeShowFormTicketList'>";
+  innards += "</div>";
+  innards += "<button type='button' onclick='addTicket();')>Add Ticket Type</button>"; //initiate save dialogue
+  innards += "</div>";
+
   // TODO: (1) Add performances form
+  innards += "<div id='makeShowFormPerformanceBox'>";
+  innards += "<div id='makeShowFormPerformanceList'>";
+  innards += "</div>";
+  innards += "<button type='button' onclick='addPerformance();')>Add Performance Date</button>"; //initiate save dialogue
+  innards += "</div>";
   // TODO: (1) Save button
+  innards += "<button type='button' onclick='saveShow();')>Save</button>"; //initiate save dialogue
   innards += "</div>";
   container.innerHTML = innards;
   initialize(); //init google map lookup
+  addTicket();
+  addPerformance();
 };
 
 // TODO: (2) Add Performance Function

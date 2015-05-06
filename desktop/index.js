@@ -172,12 +172,12 @@ var addTicket = function() {
   var loc = document.getElementById('makeShowFormTicketList');
   var id = loc.children.length;
   var growth = "<div class='ticketType' id='ticketType" + id + "'>";
-  growth += "<label for='ticketText'>Ticket Name:</label>";
-  growth += "<input type='text' id='ticketText'>";
-  growth += "<label for='ticketPrice'>Ticket Price:</label>";
-  growth += "<input type='text' id='ticketPrice'>";
-  growth += "<label for='ticketAttributes'>Ticket Attributes:</label>";
-  growth += "<input type='text' id='ticketAttributes'>";
+  growth += "<label for='ticketText'><span>Ticket Name:</span>";
+  growth += "<input type='text' id='ticketText'></label>";
+  growth += "<label for='ticketPrice'><span>Ticket Price:</span>";
+  growth += "<input type='text' id='ticketPrice'></label>";
+  growth += "<label for='ticketAttributes'><span>Ticket Attributes:</span>";
+  growth += "<input type='text' id='ticketAttributes'></label>";
   growth += "<button type='button' onclick='removeNode(\"ticketType" + id + "\");'>Remove</button>";  
   growth += "</div>";
   loc.innerHTML += growth;
@@ -188,11 +188,11 @@ var addPerformance = function() {
   var loc = document.getElementById('makeShowFormPerformanceList');
   var id = loc.children.length;
   var growth = "<div class='performanceType id='performance" + id + "''>";
-  growth += "<label for='performanceText'>Performance Date / Time:</label>";
+  growth += "<label for='performanceText'><span>Performance Date / Time:</span>";
   // TODO: (4) Add datetime picker! :(
-  growth += "<input type='text' id='performanceText'>";
-  growth += "<label for='performanceAttributes'>Performance Attributes:</label>";
-  growth += "<input type='text' id='performanceAttributes'>";
+  growth += "<input type='text' id='performanceText'></label>";
+  growth += "<label for='performanceAttributes'><span>Performance Attributes:</span>";
+  growth += "<input type='text' id='performanceAttributes'></label>";
   growth += "<button type='button' onclick='removeNode(\"performance" + id + "\");'>Remove</button>";  
   growth += "</div>";
   loc.innerHTML += growth;
@@ -257,30 +257,28 @@ var saveShow = function() {
 var makeShow = function(displayID) {
   var container = document.getElementById(displayID);
   var innards = "<div id='makeShowForm'>";
-  innards += "<label for='makeShowFormTitle'>Title:</label>";
-  innards += "<input type='text' id='makeShowFormTitle'>";
+  innards += "<label for='makeShowFormTitle'><span>Title:</span>";
+  innards += "<input type='text' id='makeShowFormTitle'></label>";
 
-  innards += "<label><input type='checkbox' id='makeShowFormAssigned' onClick='togglePlots();'> Assigned Seating</label>"
-  innards += "<span id='plotsBox' style='display:none;'><label for='makeShowFormPlot'>Plot:</label>";
+  innards += "<label for='makeShowFormAssigned'><span>Assigned Seating</span><input type='checkbox' id='makeShowFormAssigned' onClick='togglePlots();'></label>"
+  innards += "<span id='plotsBox' style='display:none;'><label for='makeShowFormPlot'><span>Plot:</span>";
   innards += "<input type='text' id='makeShowFormPlot' list='plots'>";
   innards += "<datalist id='plots'>";
   var plots = JSON.parse(localStorage.tcktr).plots;
   for (var i = 0; i < plots.length; ++i) {
     innards += "<option value='" + plots[i].title + "'>"
   }
-  innards += "</datalist></span>"
+  innards += "</datalist></label></span>"
   // Show Company
-  innards += "<label for='makeShowFormCompany'>Company:</label>";
-  innards += "<input type='text' id='makeShowFormCompany'>";
+  innards += "<label for='makeShowFormCompany'><span>Company:</span>";
+  innards += "<input type='text' id='makeShowFormCompany'></label>";
   // Show Venue Name
-  innards += "<label for='makeShowFormVenueName'>Venue Name:</label>";
-  innards += "<input type='text' id='makeShowFormVenueName'>";
+  innards += "<label for='makeShowFormVenueName'><span>Venue Name:</span>";
+  innards += "<input type='text' id='makeShowFormVenueName'></label>";
 
   // Venue Location with Google Maps AutoComplete
-  innards += "<label for='autocomplete'>Venue Location:</label>";
-  innards += "<input id='autocomplete' placeholder='Enter your address' type='text'></input>";
-
-  innards += "<br>"; // TODO: (6) Remove me once Mary fixes styling
+  innards += "<label for='autocomplete'><span>Venue Location:</span>";
+  innards += "<input id='autocomplete' placeholder='Enter your address' type='text'></input></label>";
 
   // Select Ticket Type Menu
   innards += "<div id='makeShowFormTicketBox'>";

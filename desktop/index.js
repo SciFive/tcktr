@@ -187,7 +187,7 @@ var addTicket = function() {
 var addPerformance = function() {
   var loc = document.getElementById('makeShowFormPerformanceList');
   var id = loc.children.length;
-  var growth = "<div class='performanceType id='performance" + id + "''>";
+  var growth = "<div class='performanceType' id='performance" + id + "'>";
   growth += "<label for='datepicker'><span>Performance Date / Time:</span>";
   growth += "<input type='text' id='datepicker'></label>";
   growth += "<label for='performanceAttributes'><span>Performance Attributes:</span>";
@@ -195,9 +195,7 @@ var addPerformance = function() {
   growth += "<button class='remove' type='button' onclick='removeNode(\"performance" + id + "\");'>Remove</button>";  
   growth += "</div>";
   loc.innerHTML += growth;
-     $('#datepicker').datetimepicker({
-    
-    });
+  $('#datepicker').datetimepicker({});
 };
 
 // TODO: (5) docs for remove

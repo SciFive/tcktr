@@ -39,8 +39,10 @@ var makeHousePlot = function(displayID) {
   innards += '<span>Total: <span id="makeHousePlotCount">50</span></span>';
   innards += '</div>';
   innards += '<div id="housePlot"></div>';
+  previous_src = container.innerHTML;
   container.innerHTML = innards;
   displayHousePlot("housePlot", makeHousePlotDefault(), "all");
+  drawNavMenu(displayID);
 };
 
 // TODO: (5) Add docs for inc state, et al
@@ -251,7 +253,7 @@ var saveShow = function() {
   localStorage.tcktr = JSON.stringify(tcktr);
 };
 
-// TODO: (2) Make Show Function
+// TODO: (5) Make Show Docs
 var makeShow = function(displayID) {
   var container = document.getElementById(displayID);
   var innards = "<div id='makeShowForm'>";
@@ -278,7 +280,7 @@ var makeShow = function(displayID) {
   innards += "<label for='autocomplete'>Venue Location:</label>";
   innards += "<input id='autocomplete' placeholder='Enter your address' type='text'></input>";
 
-  innards += "<br>"; // TODO: (2) Remove me once Mary fixes styling
+  innards += "<br>"; // TODO: (6) Remove me once Mary fixes styling
 
   // Select Ticket Type Menu
   innards += "<div id='makeShowFormTicketBox'>";
@@ -293,9 +295,10 @@ var makeShow = function(displayID) {
   innards += "<button type='button' onclick='addPerformance();')>Add Performance Date</button>"; //initiate save dialogue
   innards += "</div>";
 
-  // TODO: (1) Save button
   innards += "<button type='button' onclick='saveShow();')>Save</button>"; //initiate save dialogue
   innards += "</div>";
+  drawNavMenu(displayID);
+  previous_src = container.innerHTML;
   container.innerHTML = innards;
   initialize(); //init google map lookup
   addTicket();
@@ -309,14 +312,16 @@ var makeShow = function(displayID) {
 // TODO: (3) Open Box Function / sell mode
 var openBoxoffice = function(displayID) {
   var container = document.getElementById(displayID);
-
+  // TODO: (1) Transaction complete / log
+  // TODO: (1) Seat select, etc
 }
 // TODO: (4) Add print ticket function
 // TODO: (4) Add print receipt function
 /*
+
   <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large red">
-      <i class="large mdi-editor-mode-edit"></i>
+    <a class="btn-floating btn-large black">
+      <i class="large mdi-content-undo"></i>
     </a>
     <ul>
       <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
@@ -330,10 +335,30 @@ var openBoxoffice = function(displayID) {
 // MAIN MENU DISPLAY / CREATION *********************************************************
 // **************************************************************************************
 
+var goBackInTime = function(displayID) {
+  var current_src = document.getElementById(displayID).innerHTML;
+  document.getElementById(displayID).innerHTML = previous_src;
+  previous_src = current_src;
+}
+
+var drawNavMenu = function(displayID) {
+  innards = '';
+  if (previous_src) {
+    var innards = '<div class="fixed-action-btn" style="bottom: 45px; right: 24px;" id="floatingInSpace">';
+    innards += '<a class="btn-floating btn-large black" onclick="' 
+    innards += 'goBackInTime(\''+ displayID + '\');">';
+    innards += 'Back</a>'
+    // TODO: (2) Add navigation bar stuffs :)
+    // innards += '<li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li><li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li><li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li><li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>';
+    innards += '</div>'
+  }
+  document.getElementById('nav').innerHTML = innards;
+}
+
 var makeMenu = function(displayID) {
   var container = document.getElementById(displayID);
   var innards = "<ul id='mainMenu'><div class='header'><h1>tcktr</h1><p>Behind the Scenes</p></div>";
-  links = [
+  var links = [
     { "t" : "Make House Plot", "o" : "makeHousePlot('" + displayID + "');"},
     { "t" : "Make Show", "o" : "makeShow('" + displayID + "');"},
     { "t" : "Manage Plots", "o" : "makeHousePlot('" + displayID + "');"},
@@ -345,13 +370,18 @@ var makeMenu = function(displayID) {
     innards += '<li><a href="#" onclick="' + links[i].o + '">' + links[i].t + '</a></li>';
   }
   innards += "</ul>";
+
+  drawNavMenu(displayID);
+  previous_src = container.innerHTML;
   container.innerHTML = innards;
 }
 
 // TODO: (5) var docs
+var previous_src = null;
+
 var mouseDown = 0;
 var fs = null;
-var nw = true; 
+var nw = true;
 // TODO: (5) onload docs
 window.onload = function() {
   // track mouse state

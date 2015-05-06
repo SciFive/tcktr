@@ -188,9 +188,8 @@ var addPerformance = function() {
   var loc = document.getElementById('makeShowFormPerformanceList');
   var id = loc.children.length;
   var growth = "<div class='performanceType id='performance" + id + "''>";
-  growth += "<label for='performanceText'><span>Performance Date / Time:</span>";
-  // TODO: (4) Add datetime picker! :(
-  growth += "<input type='text' id='performanceText'></label>";
+  growth += "<label for='datepicker'><span>Performance Date / Time:</span>";
+  growth += "<input type='text' id='datepicker'></label>";
   growth += "<label for='performanceAttributes'><span>Performance Attributes:</span>";
   growth += "<input type='text' id='performanceAttributes'></label>";
   growth += "<button class='remove' type='button' onclick='removeNode(\"performance" + id + "\");'>Remove</button>";  
@@ -242,8 +241,8 @@ var saveShow = function() {
   for (var i = 0; i < performanceList.length; ++i) {
     if (performanceList[i].style.display != 'none') {
       show.performances.push({
-        "title" : performanceList[i].querySelector('#performanceText').value,
-        "date" : performanceList[i].querySelector('#performanceText').value,
+        "title" : performanceList[i].querySelector('#datepicker').value,
+        "date" : performanceList[i].querySelector('#datepicker').value,
         "attributes" : performanceList[i].querySelector('#performanceAttributes').value,
         "log" : ""
       });

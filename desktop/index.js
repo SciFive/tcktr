@@ -202,15 +202,53 @@ var removeNode = function(id) {
 };
 
 var getPlot = function() {
+  if (document.getElementById('makeShowFormPlot')) {
+    var name = document.getElementById('makeShowFormPlot').value;
+    var plots = JSON.parse(localStorage.tcktr).plots;
+    for (var i = 0; i < plots.length; ++i) {
+      if (name == plots[i].title) {
+        return name;
+      }
+    }
+  }
   return null;
 }
 // TODO: (5) Save Docs
 var saveShow = function() {
   var show = {
-    "title" : document.getElementById('#makeShowFormTitle').value,
+    "title" : document.getElementById("makeShowFormTitle").value,
     "assigned" : document.getElementById("makeShowFormAssigned").checked,
     "plot" : document.getElementById("makeShowFormAssigned").checked ? getPlot() : null,
+    "company" : document.getElementById("makeShowFormCompany").value,
+    "venue" : document.getElementById("makeShowFormVenueName").value,
+    "venue_loc" : document.getElementById("autocomplete").value,
+    "tickets" : [],
+    "performances" : []
   };
+  var ticketList = document.getElementById('makeShowFormTicketList').children;
+  for (var i = 0; i < ticketList.length; ++i) {
+    // TODO: (3) don't add empty ticket/prefs
+    if (ticketList[i].style.display != 'none') {
+      show.tickets.push({
+        "title" : ticketList[i].querySelector('#ticketText').value,
+        "price" : ticketList[i].querySelector('#ticketPrice').value,
+        "attributes" : ticketList[i].querySelector('#ticketAttributes').value
+      });
+    }
+  }
+  var performanceList = document.getElementById('makeShowFormPerformanceList').children;
+  for (var i = 0; i < performanceList.length; ++i) {
+    if (performanceList[i].style.display != 'none') {
+      show.performances.push({
+        "title" : performanceList[i].querySelector('#performanceText').value,
+        "date" : performanceList[i].querySelector('#performanceText').value,
+        "attributes" : performanceList[i].querySelector('#performanceAttributes').value
+      });
+    }
+  }
+  var tcktr = JSON.parse(localStorage.tcktr);
+  tcktr.plots.push(show);
+  localStorage.tcktr = JSON.stringify(tcktr);
 };
 
 // TODO: (2) Make Show Function
@@ -264,18 +302,30 @@ var makeShow = function(displayID) {
   addPerformance();
 };
 
-// TODO: (2) Add Performance Function
-// TODO: (1) Make ticket function
-
 //***************************************************************************************
 // BOX OFFICE DISPLAY / PRINT / OPERATION ***********************************************
 // **************************************************************************************
 
 // TODO: (3) Open Box Function / sell mode
+var openBoxoffice = function(displayID) {
+  var container = document.getElementById(displayID);
+
+}
 // TODO: (4) Add print ticket function
 // TODO: (4) Add print receipt function
-
-
+/*
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large mdi-editor-mode-edit"></i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li>
+      <li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li>
+      <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
+    </ul>
+  </div>
+*/
 //***************************************************************************************
 // MAIN MENU DISPLAY / CREATION *********************************************************
 // **************************************************************************************
@@ -286,8 +336,9 @@ var makeMenu = function(displayID) {
   links = [
     { "t" : "Make House Plot", "o" : "makeHousePlot('" + displayID + "');"},
     { "t" : "Make Show", "o" : "makeShow('" + displayID + "');"},
-    { "t" : "Manager Performances", "o" : "makeHousePlot('" + displayID + "');"},
-    { "t" : "Open Boxoffice", "o" : "makeHousePlot('" + displayID + "');"},
+    { "t" : "Manage Plots", "o" : "makeHousePlot('" + displayID + "');"},
+    { "t" : "Manage Shows", "o" : "makeHousePlot('" + displayID + "');"},
+    { "t" : "Open Boxoffice", "o" : "openBoxoffice('" + displayID + "');"},
     { "t" : "Settings", "o" : "makeHousePlot('" + displayID + "');"}
   ];
   for (var i = 0; i < links.length; ++i) {

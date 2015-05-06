@@ -345,6 +345,10 @@ label {
 	border-collapse: collapse;
 }
 
+#seats p {
+    text-align: center;
+}
+
 #seats tr {
 	line-height: 115px;
 	border-bottom: 1px solid #FFFFFF;
@@ -360,6 +364,37 @@ label {
 	background: #FFFFFF;
 	color: #32070e;
 	font-weight: bold;
+}
+
+#show {
+    width: 1000px;
+    margin: auto;
+}
+
+#show p {
+    font-weight: bold;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 70px;
+}
+
+#showimg {
+    width:500px;
+    float: left;
+}
+
+#showimg img {
+    width: 500px;
+}
+
+#showinfo {
+    width: 500px;
+    float: right;
+}
+
+#showinfo li {
+    list-style: none;
+    margin-bottom: 10px;
 }
 
 .cd-user-modal {

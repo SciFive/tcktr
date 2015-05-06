@@ -1,0 +1,67 @@
+<!doctype hmtl>
+
+<html>
+
+<head>
+	<title>tcktr</title>
+	<link rel="stylesheet" type="text/css" href="../resources/style.css"/>
+  <link rel="shortcut icon" href="../resources/favicon.ico" type="png"/>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <link rel="stylesheet" href="./resources/login-signup-modal-window/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="title"><h2>Find Theatres</h2></div>
+	<div id="mainContainer">
+    <p id="catchLine">your box office on-the-go</p>
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed pure-menu-scrollable">
+            <a class="pure-menu-heading" href="../index.html">tcktr</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="./findshows.html" class="pure-menu-link">Shows</a></li>
+                <li class="pure-menu-item"><a href="./findtheaters.html" class="pure-menu-link">Theatres</a></li>
+                <li class="pure-menu-item"><a href="./about.html" class="pure-menu-link">About Us</a></li>
+                <li class="pure-menu-item"><i class="fa fa-shopping-cart fa-2x"></i></li>
+            </ul>
+        </div>
+
+        <div class="simpleCart_shelfItem">
+          <p class="item_name"> Awesome T-shirt </pure>
+        <p>  <input type="text" value="1" class="item_Quantity"><br>
+          <span class="item_price">$35.99</span><br>
+          <a class="item_add" href="javascript:;"> Add to Cart </a></p>
+        </div>
+
+        <span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span>
+        <a href="javascript:;" class="simpleCart_checkout">Checkout</a>
+
+        <div class="simpleCart_shelfItem">
+            <h2 class="item_name"> Awesome T-shirt </h2>
+        <p>    <select class="item_size">
+                <option value="Small"> Small </option>
+                <option value="Medium"> Medium </option>
+                <option value="Large"> Large </option>
+            </select><br>
+            <input type="text" value="1" class="item_Quantity"><br>
+            <span class="item_price">$35.99</span><br>
+        <a class="item_add" href="javascript:;"> Add to Cart </a></p>
+        </div>
+        
+  </div>
+
+  <script>
+    simpleCart({
+      checkout: {
+        type: "PayPal",
+        email: "you@yours.com"
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../resources/simpleCart.js"></script>
+  <script type="text/javascript" src="../resources/simpleCart.min.js"></script>
+
+</body>
+
+</html>

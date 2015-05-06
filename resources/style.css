@@ -366,6 +366,10 @@ label {
 	font-weight: bold;
 }
 
+#shoppingcart li {
+    list-style: none;
+}
+
 #show {
     width: 1000px;
     margin: auto;
@@ -412,4 +416,110 @@ label {
 .main-nav{
     width: 10em;
     margin: auto;
+}
+
+/* shopping cart */
+
+#cart {
+    float: right;
+    width: 303px;
+    background-image: url(../images/cartBg.png);
+    height: 31px;
+    margin-top: 15px;
+}
+#cartText {
+    color: #A2ABB2;
+    margin-left: 35px;
+    margin-top: 7px;
+    margin-right: 2px;
+    margin-bottom: 5px;
+    width: 135px;
+    font-size: 10pt;
+    float: left;
+    clear: right;
+}
+ul#checkout {
+}
+ul#checkout a
+{
+    font-weight: normal;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+ul#checkout, ul#checkout ul, ul#checkout li
+{
+margin: 0px;
+padding: 0px;
+list-style-type: none;
+}
+
+ul#checkout li {
+    vertical-align: middle;
+}
+
+
+ul#checkout li a
+{
+    background-color: #3B444B;
+    moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    color: #A2ABB2;
+    font-size: 12px;
+    font-family: Helvetica, sans-serif;
+    width: 110px;
+    height:20px;
+    margin-top: 3px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    float: left;
+    padding-top: 4px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 8px;
+    font-weight: 500;
+}
+ul#checkout li a:hover{
+    -moz-box-shadow: -1px 2px 3px rgb(0,0,0);
+    -webkit-box-shadow: -1px 2px 3px rgb(0,0,0);
+    box-shadow: -1px 2px 3px rgb(0,0,0);
+}
+
+ul#itemList {
+    padding: 10px;
+    width: 279px;
+    float: left;
+    position: absolute;
+    display: none;
+    margin-bottom: 10px;
+    /*z-index: 0;*/
+}
+ul#itemList li {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+ul#itemList li a
+{
+
+}
+
+ul#checkout li:hover  ul#itemList{
+    display: block;
+    position: absolute;
+    font-size: 10pt;
+    font-family: Helvetica, sans-serif;
+    background-color: #2A343B;
+    width: 279px;
+    color: #CCC;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding: 10px;
+    float: left;
+    moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-top: 30px;
+    
 }

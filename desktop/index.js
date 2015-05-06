@@ -35,7 +35,7 @@ var makeHousePlot = function(displayID) {
   innards += 'Columns:<input type="number" name="width" id="width" onchange="displayHousePlot(\'housePlot\', makeHousePlotDefault(), \'all\'); resetCount();" value="10" min="1" required>';
   innards += 'Rows:<input type="number" name="height" id="height" onchange="displayHousePlot(\'housePlot\', makeHousePlotDefault(), \'all\'); resetCount();" value="5" min="1" required>';
   innards += 'Filename:<input type="text" id="housePlotTitle">'
-  innards += '<button type="button" onclick="saveHousePlot(\'housePlotTableBody\')">Save</button>'; //initiate save dialogue
+  innards += '<button id="savePlot" type="button" onclick="saveHousePlot(\'housePlotTableBody\')">Save</button>'; //initiate save dialogue
   innards += '<span>Total: <span id="makeHousePlotCount">50</span></span>';
   innards += '</div>';
   innards += '<div id="housePlot"></div>';
@@ -178,7 +178,7 @@ var addTicket = function() {
   growth += "<input type='text' id='ticketPrice'></label>";
   growth += "<label for='ticketAttributes'><span>Ticket Attributes:</span>";
   growth += "<input type='text' id='ticketAttributes'></label>";
-  growth += "<button type='button' onclick='removeNode(\"ticketType" + id + "\");'>Remove</button>";  
+  growth += "<button class='remove' type='button' onclick='removeNode(\"ticketType" + id + "\");'>Remove</button>";  
   growth += "</div>";
   loc.innerHTML += growth;
 };
@@ -193,7 +193,7 @@ var addPerformance = function() {
   growth += "<input type='text' id='performanceText'></label>";
   growth += "<label for='performanceAttributes'><span>Performance Attributes:</span>";
   growth += "<input type='text' id='performanceAttributes'></label>";
-  growth += "<button type='button' onclick='removeNode(\"performance" + id + "\");'>Remove</button>";  
+  growth += "<button class='remove' type='button' onclick='removeNode(\"performance" + id + "\");'>Remove</button>";  
   growth += "</div>";
   loc.innerHTML += growth;
 };
@@ -257,7 +257,7 @@ var saveShow = function() {
 // TODO: (5) Make Show Docs
 var makeShow = function(displayID) {
   var container = document.getElementById(displayID);
-  var innards = "<div id='makeShowForm'>";
+  var innards = "<div id='makeShowForm'><h1>Add Show<span>Please fill out all of the following form fields.</span></h1>";
   innards += "<label for='makeShowFormTitle'><span>Title:</span>";
   innards += "<input type='text' id='makeShowFormTitle'></label>";
 
@@ -294,7 +294,7 @@ var makeShow = function(displayID) {
   innards += "<button type='button' onclick='addPerformance();')>Add Performance Date</button>"; //initiate save dialogue
   innards += "</div>";
 
-  innards += "<button type='button' onclick='saveShow();')>Save</button>"; //initiate save dialogue
+  innards += "<button id='save' type='button' onclick='saveShow();')>Save</button>"; //initiate save dialogue
   innards += "</div>";
   drawNavMenu(displayID);
   previous_src = container.innerHTML;

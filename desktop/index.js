@@ -195,6 +195,9 @@ var addPerformance = function() {
   growth += "<button class='remove' type='button' onclick='removeNode(\"performance" + id + "\");'>Remove</button>";  
   growth += "</div>";
   loc.innerHTML += growth;
+     $('#datepicker').datetimepicker({
+    
+    });
 };
 
 // TODO: (5) docs for remove

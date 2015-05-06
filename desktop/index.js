@@ -244,7 +244,8 @@ var saveShow = function() {
       show.performances.push({
         "title" : performanceList[i].querySelector('#performanceText').value,
         "date" : performanceList[i].querySelector('#performanceText').value,
-        "attributes" : performanceList[i].querySelector('#performanceAttributes').value
+        "attributes" : performanceList[i].querySelector('#performanceAttributes').value,
+        "log" : ""
       });
     }
   }
@@ -310,6 +311,7 @@ var makeShow = function(displayID) {
 // TODO: (3) Open Box Function / sell mode
 var openBoxoffice = function(displayID) {
   var container = document.getElementById(displayID);
+
   // TODO: (1) Transaction complete / log
   // TODO: (1) Seat select, etc
 }

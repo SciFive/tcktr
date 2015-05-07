@@ -52,10 +52,10 @@
         	</div>
         	<div id="showinfo">
 	        	<ul>
-	        		<li>Location: <?php $location ?></li>
-	        		<li>Length: <?php $length ?></li>
-	        		<li>Genre(s): <?php $genre ?></li>
-	        		<li><?php $description ?></li>
+	        		<li>Location: <?php echo $location ?></li>
+	        		<li>Length: <?php echo $length ?></li>
+	        		<li>Genre(s): <?php echo $genre ?></li>
+	        		<li><?php echo $description ?></li>
 	        		<li>Pick a time and find a seat for this show</li>
 	        		<ul>
 	        			<?php 
@@ -65,7 +65,7 @@
 
 					        foreach($sql as $row) {
 
-								echo "<li><a href='reservation.php/?show=" . 1 . "''>" . date('M jS g:ia',strtotime($row["date"])) . "</a></li>";
+								echo "<li><a href='reservation.php/?show=" . 1 . "'>" . date('M jS g:ia',strtotime($row["date"])) . "</a></li>";
 								    
 							}
 	        			?>

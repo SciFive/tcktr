@@ -9,7 +9,7 @@ p{
 }
 
 #mainMenu{
-    height: 100%;
+    height: auto;
     font-size: 1.15em;
     list-style: none;
     text-align: center;
@@ -20,6 +20,15 @@ body {
   background-color: #1f8dd6; 
 }
 
+#mainMenu a{
+  display: block;
+  width: 10em;
+  margin-top: -.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+}
+
 a{
   font-family: Arial;
   color: #000066;
@@ -27,6 +36,7 @@ a{
   background: #f5f5f5;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+  border-radius: 4px;
 }
 
 #nav{

@@ -81,8 +81,9 @@
 	        			?>
 		        	</ul>
 		     	</div>
-
-                <button onclick="revervation.php/?show=1">Reserve Now</button>
+                <?php 
+                    echo '<button onclick="revervation.php/?show=' . $_GET['showID'] .'">Reserve Now</button>'
+                ?>
         </div>
 
         <div id="seats">

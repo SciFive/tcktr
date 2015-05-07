@@ -29,7 +29,7 @@
 
         	$db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
-		    $sql = $db->prepare("SELECT * FROM show WHERE showID = 1");
+		    $sql = $db->prepare("SELECT * FROM show WHERE showID = $_POST['showID']");
 
 		    $sql->execute();
 
@@ -59,13 +59,13 @@
 	        		<li>Pick a time and find a seat for this show</li>
 	        		<ul>
 	        			<?php 
-	        				$sql = $db->prepare("SELECT date FROM perform WHERE showID = 1");
+	        				$sql = $db->prepare("SELECT date FROM perform WHERE showID = $_POST['showID']");
 
 							$sql->execute();
 
 					        foreach($sql as $row) {
 
-								echo "<li><a href='reservation.php/?show=" . 1 . "'>" . date('M jS g:ia',strtotime($row["date"])) . "</a></li>";
+								echo "<li><a href='reservation.php/?show=" . $_POST['showID'] . "'>" . date('M jS g:ia',strtotime($row["date"])) . "</a></li>";
 								    
 							}
 	        			?>

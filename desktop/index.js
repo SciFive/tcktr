@@ -357,7 +357,7 @@ var drawNavMenu = function(displayID) {
 
 var makeMenu = function(displayID) {
   var container = document.getElementById(displayID);
-  var innards = "<ul id='mainMenu'><div class='header'><h1>tcktr</h1><p>Behind the Scenes</p></div>";
+  var innards = "<ul id='mainMenu'><div class='header'><h1>TCKTR</h1><p>Behind the Scenes</p></div>";
   var links = [
     { "t" : "Make House Plot", "o" : "makeHousePlot('" + displayID + "');"},
     { "t" : "Make Show", "o" : "makeShow('" + displayID + "');"},

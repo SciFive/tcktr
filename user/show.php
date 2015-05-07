@@ -82,7 +82,7 @@
 		        	</ul>
 		     	</div>
 
-		     	<button onclick="revervation.php/?show=1">
+                <button onclick="revervation.php/?show=1">Reserve Now</button>
         </div>
 
         <div id="seats">

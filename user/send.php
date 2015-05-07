@@ -20,7 +20,7 @@
     else {
     
 		//Connecting to sql db.
-		$db = new PDO("mysql:host=45.55.177.60;dbname=tcktr","root","hardlyapassword1!");
+		$db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
 		$sql = $db->prepare("SELECT numTickets, reserved FROM perform WHERE date = '$_POST[showtime]' AND showID = '$_GET[show]'");
 

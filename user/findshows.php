@@ -28,14 +28,20 @@
         </div>
         
         <div class="slider3">
-          <div class="slide"><a href="./show.html" class="pure-menu-link"><img src="http://placehold.it/500x500" text="[theatre name]"></a></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
+          <?php
+          $db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
+
+          $sql = $db->prepare("SELECT * FROM show");
+          $sql->execute();
+
+          $i = 0;
+
+          foreach($sql as $row) {
+
+            echo "<div class='slide'><a href='show.php?showID=".$row['ID']."'>".$row['title']."</a></div>";
+
+          }
+        ?>
         </div>
         <div id="map"></div>
         <div id="alerts"></div>

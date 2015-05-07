@@ -20,23 +20,7 @@
     else {
     
 		//Connecting to sql db.
-		$db = new PDO("mysql:host=localhost;dbname=tcktr","root","root");
-		
-
-		//Sending form data to sql db.
-		if(isset($_POST['list'])){
-			$sql = $db->prepare("INSERT INTO reservations (fname, lname, email, numTicket, list, performID)
-			VALUES ('$_POST[fname]', '$_POST[lname]', '$_POST[email]', '$_POST[numTicket]', 'Yes', '1')");
-
-			$sql->execute();
-		}
-
-		else{
-			$sql = $db->prepare("INSERT INTO reservations (fname, lname, email, numTicket, list, performID)
-			VALUES ('$_POST[fname]', '$_POST[lname]', '$_POST[email]', '$_POST[numTicket]', 'No', '1')");
-
-			$sql->execute();
-		}
+		$db = new PDO("mysql:host=45.55.177.60;dbname=tcktr","root","hardlyapassword1!");
 
 		$sql = $db->prepare("SELECT numTickets, reserved FROM perform WHERE date = '$_POST[showtime]' AND showID = '$_GET[show]'");
 
@@ -48,14 +32,37 @@
 			foreach($sql as $row) {
 
 				if(($row["numTickets"] - $row["reserved"]) > $_POST['numTicket']){
+
 					$result = $row["reserved"] + $_POST['numTicket'];
 
 					$sql = $db->prepare("UPDATE perform SET `reserved` = $result WHERE `date` = '$_POST[showtime]' AND `showID` = '$_GET[show]'");
 
 					$sql->execute();
 
+					if(isset($_POST['list'])){
+						$sql = $db->prepare("INSERT INTO reservations (fname, lname, email, numTicket, list, performID)
+						VALUES ('$_POST[fname]', '$_POST[lname]', '$_POST[email]', '$_POST[numTicket]', 'Yes', '1')");
+
+						$sql->execute();
+					}
+
+					else{
+						$sql = $db->prepare("INSERT INTO reservations (fname, lname, email, numTicket, list, performID)
+						VALUES ('$_POST[fname]', '$_POST[lname]', '$_POST[email]', '$_POST[numTicket]', 'No', '1')");
+
+						$sql->execute();
+					}
+
 					echo "You reserved " . $_POST['numTicket'] . " Tickets!";
 					echo "<a href='http://websci/tcktr/user/reservation.php/?show=" . $_GET['show']. "'> Go Back </a>";
+
+					$message = "Thank you for reserving " . $_POST['numTicket'] . " Tickets for the show!";
+					$headers = array("From: tcktr.customer.relations@gmail.com",
+								    "Reply-To: tcktr.customer.relations@gmail.com",
+								    "X-Mailer: PHP/" . PHP_VERSION
+								);
+					$headers = implode("\r\n", $headers);
+					mail('dibol13@gmail.com', 'Ticket Reservation', $message, $headers);
 				}
 				else{
 					echo "You tried to reserve too many tickets! There are only " . $row["numTickets"] - $row["reserved"] . " Tickets left!";

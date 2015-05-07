@@ -9,7 +9,7 @@
 
 $sid = $_GET['show'];
 
-$action = "../send.php?show=" . $sid; 
+$action = "./send.php?show=" . $sid; 
 
 ?>
 
@@ -17,7 +17,10 @@ $action = "../send.php?show=" . $sid;
     <div id="reservation"><h1>Reserve Show<span>Please fill out the following form fields.</span></h1>
         <div id="perform"><span>Performance Time: </span><select name="showtime" id="picktime">
 <?php
-  $db = new PDO("mysql:host=localhost;dbname=tcktr","root","");
+  //echo $_GET['show'];
+
+  $db = new PDO("mysql:host=45.55.177.60;dbname=tcktr","root","hardlyapassword1!");
+>>>>>>> origin/master
 
   $sql = $db->prepare("SELECT date FROM perform WHERE showID = :show");
 

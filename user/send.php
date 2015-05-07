@@ -15,13 +15,12 @@
 
         if($_POST[$value]==""){
             $filled = false;
-            echo "HI";
         }
     }
 
     //If there are any fields not filled out, send the user back to the form
     if (!$filled){
-        //header("Location: http://websci/tcktr/user/reservation.php/?show=" . $_GET['show']); 
+        header("Location: http://websci/tcktr/user/reservation.php/?show=" . $_GET['show']); 
     }
 
     else {
@@ -29,7 +28,7 @@
 		//Connecting to sql db.
 		$db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
-		$sql = $db->prepare("SELECT numTickets, reserved FROM perform WHERE date = '$_POST[showtime]' AND showID = '$_GET[show]'");
+		$sql = $db->prepare("SELECT numTickets, reserved FROM `perform` WHERE date = '$_POST[showtime]' AND showID = '$_GET[show]'");
 
 		$sql->execute();
 
@@ -42,7 +41,7 @@
 
 					$result = $row["reserved"] + $_POST['numTicket'];
 
-					$sql = $db->prepare("UPDATE perform SET `reserved` = $result WHERE `date` = '$_POST[showtime]' AND `showID` = '$_GET[show]'");
+					$sql = $db->prepare("UPDATE `perform` SET `reserved` = $result WHERE `date` = '$_POST[showtime]' AND `showID` = '$_GET[show]'");
 
 					$sql->execute();
 

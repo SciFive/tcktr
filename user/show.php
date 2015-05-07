@@ -33,6 +33,12 @@
 
 		    $sql->execute();
 
+		    $name;
+		    $location;
+		    $description;
+		    $length;
+		    $genre;
+
 		    foreach($sql as $row) {
 
 			    $name = $row['name'];

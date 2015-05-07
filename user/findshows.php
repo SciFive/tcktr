@@ -20,29 +20,28 @@
         <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed pure-menu-scrollable">
             <a class="pure-menu-heading" href="../index.html">tcktr</a>
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="./findshows.html" class="pure-menu-link">Shows</a></li>
+                <li class="pure-menu-item"><a href="./findshows.php" class="pure-menu-link">Shows</a></li>
                 <li class="pure-menu-item"><a href="./findtheaters.html" class="pure-menu-link">Theatres</a></li>
                 <li class="pure-menu-item"><a href="./about.html" class="pure-menu-link">About Us</a></li>
                 <li class="pure-menu-item"><i class="fa fa-shopping-cart fa-2x"></i></li>
             </ul>
         </div>
         
-        <div ul>
-          <?php
-          $db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
+        <div>
+          <ul>
+            <?php
+              $db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
-          $sql = $db->prepare("SELECT * FROM show");
-          $sql->execute();
+              $sql = $db->prepare("SELECT * FROM `show`");
+              $sql->execute();
 
-          $i = 0;
-
-          foreach($sql as $row) {
-
-            echo "HELLLLOOOO";
-
-          }
-        ?>
-        </ul>
+              foreach($sql as $row) {
+                echo $row['title'];
+              }
+              
+            ?>
+          </ul>
+        </div>
         <div id="map"></div>
         <div id="alerts"></div>
     

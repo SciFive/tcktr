@@ -16,9 +16,56 @@ p{
     color: white; 
 }
 
+#opensales{
+    margin-top: 2em;
+    display: block;
+    width: 6em;
+    margin: auto;
+}
+
 body {
   background-color: #1f8dd6; 
 }
+
+#showSelectForm{
+    margin-left:auto;
+    margin-right:auto;
+
+    max-width: 500px;
+    background: #FFF;
+    padding: 30px 30px 20px 30px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    text-align: center;
+}
+
+#performanceTitle{
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: -1.2em;
+    max-width: 500px;
+    background: #FFF;
+    padding-left:30px;
+    padding-bottom: 1em;
+    padding-right: 30px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+
+#salesControlBar{
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 1.2em;
+    max-width: 50em;
+}
+
 
 #mainMenu a{
   display: block;
@@ -37,6 +84,7 @@ a{
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   border-radius: 4px;
+  margin-right: 1em;
 }
 
 #nav{
@@ -68,6 +116,18 @@ table{
     height: 90%;
     overflow:hidden;
     word-wrap:break-word;
+}
+
+#ticketBox{
+    max-width:40em;
+    height: 85%;
+    margin: auto;
+}
+
+#ticketsTable{
+    max-width:35em;
+    height: 85%;
+    margin: auto;
 }
         
 tr{
@@ -112,6 +172,11 @@ tr > td:first-of-type{
                 
 td:hover{
     opacity: .7;
+}
+
+#ticketsTableBody td:hover{
+    background-color: darkslategray;
+    opacity: 1;
 }
 
 
@@ -257,6 +322,7 @@ button {
 
 .remove{
     background-color: crimson;
+    color: whitesmoke;
 }
 
 #save{

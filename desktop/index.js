@@ -464,7 +464,7 @@ var openSales = function(displayID) {
   innards += "," + document.getElementById('performanceSelection').value + ");'>Complete Transaction (<span id='transTotal'>$0.00</span>)</a>";
   innards += "<a id='clearTransaction' onclick='decouple(" + document.getElementById('showTitle').value;
   innards += "," + document.getElementById('performanceSelection').value + ");'>Clear Transaction</a>";
-  innards += "<a id='endTransaction' onclick='makeMenu(\"" + 'main' + "\");'>End Transaction</a>";
+  innards += "<a class='remove' id='endTransaction' onclick='makeMenu(\"" + 'main' + "\");'>End Transaction</a>";
   innards += "</div>";
   container.innerHTML = innards;
   drawTickets('ticketBox', show, perf);
@@ -483,7 +483,7 @@ var selectPerformance = function(displayID) {
       innards += "<option value='" + i + "'>" + perfs[i].date + "</option>";
     }
     innards += "</select></br>";
-    innards += "<a onclick='openSales(\"" + displayID + "\");'>Open Sales</a>";
+    innards += "<a id='opensales' onclick='openSales(\"" + displayID + "\");'>Open Sales</a>";
   } else {
     innards = "Sorry, no shows yet D:!"
   }
@@ -495,8 +495,8 @@ var openBoxoffice = function(displayID) {
   var tcktr = JSON.parse(localStorage.tcktr);
   var container = document.getElementById(displayID);
   var innards = "<div id='showSelectForm'>";
-  innards += "<label for='showTitle'>Show Title:</label>";
-  innards += "<select id='showTitle' onchange='selectPerformance(\"" + displayID + "\");'>";
+  innards += "<label for='showTitle'><span>Show Title:</span>";
+  innards += "<select id='showTitle' onchange='selectPerformance(\"" + displayID + "\");'></label>";
   for (var i = 0; i < tcktr.shows.length; ++i) {
     innards += "<option value='" + i + "'>" + tcktr.shows[i].title + "</option>";
   }

@@ -52,8 +52,8 @@
         	</div>
         	<div id="showinfo">
 	        	<ul>
-	        		<li>Release period</li>
-	        		<li>Rating, Length: <?php $length ?></li>
+	        		<li>Location: <?php $location ?></li>
+	        		<li>Length: <?php $length ?></li>
 	        		<li>Genre(s): <?php $genre ?></li>
 	        		<li><?php $description ?></li>
 	        		<li>Pick a time and find a seat for this show</li>

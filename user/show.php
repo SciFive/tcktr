@@ -81,62 +81,10 @@
 	        			?>
 		        	</ul>
 		     	</div>
-
-		     	<button onclick="revervation.php/?show=1">
+                <?php 
+                    echo "<button onclick='reservation.php/?show=" . $_GET['showID'] ."'>Reserve Now</button>";
+                ?>
         </div>
-
-        <div id="seats">
-			<table id="seats">
-				<tr>
-					<td>1A</td>
-					<td>1B</td>
-					<td>1C</td>
-					<td>1D</td>
-					<td>1E</td>
-					<td>1F</td>
-				</tr>
-				<tr>
-					<td>2A</td>
-					<td>2B</td>
-					<td>2C</td>
-					<td>2D</td>
-					<td>2E</td>
-					<td>2F</td>
-				</tr>
-				<tr>
-					<td>3A</td>
-					<td>3B</td>
-					<td>3C</td>
-					<td>3D</td>
-					<td>3E</td>
-					<td>3F</td>
-				</tr>
-				<tr>
-					<td>4A</td>
-					<td>4B</td>
-					<td>4C</td>
-					<td>4D</td>
-					<td>4E</td>
-					<td>4F</td>
-				</tr>
-				<tr>
-					<td>5A</td>
-					<td>5B</td>
-					<td>5C</td>
-					<td>5D</td>
-					<td>5E</td>
-					<td>5F</td>
-				</tr>
-				<tr>
-					<td>6A</td>
-					<td>6B</td>
-					<td>6C</td>
-					<td>6D</td>
-					<td>6E</td>
-					<td>6F</td>
-				</tr>
-			</table>
-		</div>
 		
 	</div>
 

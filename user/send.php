@@ -1,3 +1,9 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+    <title>tcktr</title>
+</head>
+<body>
 <?php
 	
 	$filled = true;
@@ -74,3 +80,5 @@
 		}
 
 ?>
+    </body>
+</html>

@@ -1,9 +1,12 @@
 <!DOCTYPE HTML> 
 <html>
 <head>
+
+    <title>tcktr</title>
     <link rel="stylesheet" type="text/css" href="../../resources/style.css"/>
 </head>
-<body> 
+
+<body>
 
 <?php
 

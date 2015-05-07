@@ -59,6 +59,9 @@
 						$sql->execute();
 					}
 
+					/* THIS IS SUPPOSED TO SEND RESERVATION EMAIL
+					WE GET AN SMTP INVALID ERROR!
+
 					require_once "Mail.php";
 
 					$from = '<tcktr.customer.relations@gmail.com>';
@@ -87,6 +90,7 @@
 					} else {
 					    echo('<p>Message successfully sent!</p>');
 					}
+					*/
 				}
 				else{
 					echo "You tried to reserve too many tickets! There are only " . $row["numTickets"] - $row["reserved"] . " Tickets left!";

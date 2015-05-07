@@ -8,7 +8,7 @@
 var makeHousePlotDefault = function() {
   return { 
     "title" : document.getElementById('housePlotTitle') ? document.getElementById('housePlotTitle').value : "house_plot",
-    "avail" : Number(document.getElementById('makeHousePlotCount')),
+    "avail" : Number(document.getElementById('makeHousePlotCount').innerHTML),
     "x" : Number(document.getElementById("width").value), 
     "y" : Number(document.getElementById("height").value), 
     "data" : null
@@ -47,13 +47,31 @@ var makeHousePlot = function(displayID) {
 
 // TODO: (5) Add docs for inc state, et al
 // TODO: (4) Add support for other inc state modes
-var incrementState = function(me, isClick, mode){
+var incrementState = function(me, isClick, mode, total){
   if (mouseDown || isClick) {
-    var i = Number(me.getAttribute("data-state"));
-    me.setAttribute("data-state", (i+1)%2);
-    var count = document.getElementById('makeHousePlotCount');
-    if (count) {
-      count.innerHTML = Number(count.innerHTML) + i - ((i+1)%2);
+    if (mode == 'all') {
+      var i = Number(me.getAttribute("data-state"));
+      me.setAttribute("data-state", (i+1)%2);
+      var count = document.getElementById('makeHousePlotCount');
+      if (count) {
+        count.innerHTML = Number(count.innerHTML) + i - ((i+1)%2);
+      }
+    } else if (mode == 'sell') {
+      var i = Number(me.getAttribute("data-state"));
+      me.setAttribute("data-state", (i+1)%2);
+      var count = document.getElementById('makeHousePlotCount');
+      if (count) {
+        if (i == 0) {
+          count.innerHTML = Number(count.innerHTML) + 1;
+        } else {
+          count.innerHTML = Number(count.innerHTML) - 1;
+        }
+      }
+      var count = document.getElementById('makeHousePlotCount');
+      if (total == Number(count.innerHTML)) {
+        goBackInTime('main');
+        decouple(active[0], active[1]);
+      }
     }
   }
 };
@@ -75,7 +93,7 @@ var saveHousePlot = function(displayID) {
     }
     plot.data.push(row);
   }
-  plot.avail = Number(document.getElementById('makeHousePlotCount'));
+  plot.avail = Number(document.getElementById('makeHousePlotCount').innerHTML);
   var filename = document.getElementById('housePlotTitle').value;
   if (!filename || filename == '') filename = 'housePlot'; //in case it doesn't exist, don't want to go making assumptions
   if (fs) {
@@ -93,8 +111,9 @@ var saveHousePlot = function(displayID) {
 // || plot      => object with .x, .y, .data objects inside
 // || mode      => string mode of function (all, sold, unsold, reserved)
 // @does: builds plot with mode in displayID
-var displayHousePlot = function(displayID, plot, mode) {
+var displayHousePlot = function(displayID, plot, mode, total, callback) {
   //TODO: (6) Write algo for infinite lettering (A->Z, AA->AZ->ZZ, AAA->AAZ->AZZ->ZZZ, etc)
+  console.log(mode);
   var alpha = " ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var container = document.getElementById(displayID);
   var innards = '<table id="housePlotTable">';
@@ -112,9 +131,34 @@ var displayHousePlot = function(displayID, plot, mode) {
       }
       innards += '</tr>';
     }
-    innards += '</tbody></table>';
-    container.innerHTML = innards;
+  } else if (mode == 'sell') {
+    var tcktr = JSON.parse(localStorage.tcktr);
+    for (var k = 0; k < tcktr.plots.length; ++k) {
+      if (tcktr.plots[k].title == plot) {
+        plot = tcktr.plots[k];
+      }
+    }
+    for (var i = 0; i <= plot.y; ++i) {
+      innards += '<tr>';
+      for (var j = 0; j <= plot.x; ++j) { // display proper seat identification if not the 0th element
+        innards += "<td id = '" + (i ? alpha[(plot.y-i+1)%26] : "")  + (j ? j : "") + "'"
+        if (i != 0 && j != 0) {
+          if (plot.data[i-1][j-1] == 0) {
+            innards += " onclick='incrementState(this, true, \"sell\", " + String(total) + ");'";
+            innards += " onmouseover='incrementState(this, false, \"sell\", " + String(total) + ");' ";
+          }
+          innards += " data-state='" + String(plot.data[i-1][j-1]) + "'";
+        }
+        innards += ">" + (i ? alpha[(plot.y-i+1)%26] : "")  + (j ? j : "") + "</td>";
+      }
+      innards += '</tr>';
+    }
   }
+  innards += '</tbody></table>';
+  if (mode == 'sell') {
+    innards += '<span style="display:none;" id="makeHousePlotCount">' + 0 + '</span>';
+  }
+  container.innerHTML = innards;
   // TODO: (4) Add other display modes for sales.
 };
 
@@ -341,16 +385,27 @@ var decouple = function(showID, perfID) {
 };
 
 var chosen_seats = [];
+var active = []
 var engagePhasers = function(showID, perfID) {
   chosen_seats = [];
+  active = [];
+  active.push(showID);
+  active.push(perfID);
   var tcktr = JSON.parse(localStorage.tcktr);
   var show = tcktr.shows[Number(showID)];
   var perf = show.performances[Number(perfID)];
   var prev = document.getElementById('main').innerHTML;
-  var total = Number(document.getElementById('transTotal').innerHTML.replace(/[^0-9\.]+/g,""));
+  // var total = Number(document.getElementById('transTotal').innerHTML.replace(/[^0-9\.]+/g,""));
+  var total = 0;
+  for (var i = 0; i < show.tickets.length; ++i) {
+    var ticket = document.getElementById(i);
+    total += Number(ticket.querySelector('#sold').innerHTML);
+  }
   if (show.assigned) {
-    displayHousePlot('main', show.plot, "sell", total);
-    
+    previous_src = document.getElementById('main').innerHTML;
+    displayHousePlot('main', show.plot, "sell", total, function() {
+
+    });
   } else {
 
   }
@@ -409,10 +464,12 @@ var openSales = function(displayID) {
   innards += "," + document.getElementById('performanceSelection').value + ");'>Complete Transaction (<span id='transTotal'>$0.00</span>)</a>";
   innards += "<a id='clearTransaction' onclick='decouple(" + document.getElementById('showTitle').value;
   innards += "," + document.getElementById('performanceSelection').value + ");'>Clear Transaction</a>";
+  innards += "<a id='endTransaction' onclick='makeMenu(\"" + 'main' + "\");'>End Transaction</a>";
   innards += "</div>";
   container.innerHTML = innards;
   drawTickets('ticketBox', show, perf);
 };
+
 //TODO: (5) DOCS DOCS DOCS
 var selectPerformance = function(displayID) {
   var tcktr = JSON.parse(localStorage.tcktr);
@@ -461,10 +518,10 @@ var openBoxoffice = function(displayID) {
 // **************************************************************************************
 
 // TODO: (5) Men docs
-var goBackInTime = function(displayID) {
+var goBackInTime = function(displayID, allowed) {
   var current_src = document.getElementById(displayID).innerHTML;
   document.getElementById(displayID).innerHTML = previous_src;
-  previous_src = current_src;
+  if (!allowed) previous_src = current_src;
 }
 
 var drawNavMenu = function(displayID) {

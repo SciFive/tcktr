@@ -139,7 +139,7 @@ function initialize() {
 function fillInAddress() {
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
-
+  /*
   for (var component in componentForm) {
     document.getElementById(component).value = '';
     document.getElementById(component).disabled = false;
@@ -153,7 +153,7 @@ function fillInAddress() {
       var val = place.address_components[i][componentForm[addressType]];
       document.getElementById(addressType).value = val;
     }
-  }
+  }*/
 };
 
 // TODO: (5) Docs for togglePlots
@@ -187,7 +187,7 @@ var addTicket = function() {
 var addPerformance = function() {
   var loc = document.getElementById('makeShowFormPerformanceList');
   var id = loc.children.length;
-  var growth = "<div class='performanceType id='performance" + id + "''>";
+  var growth = "<div class='performanceType' id='performance" + id + "'>";
   growth += "<label for='datepicker'><span>Performance Date / Time:</span>";
   growth += "<input type='text' id='datepicker'></label>";
   growth += "<label for='performanceAttributes'><span>Performance Attributes:</span>";
@@ -195,9 +195,7 @@ var addPerformance = function() {
   growth += "<button class='remove' type='button' onclick='removeNode(\"performance" + id + "\");'>Remove</button>";  
   growth += "</div>";
   loc.innerHTML += growth;
-     $('#datepicker').datetimepicker({
-    
-    });
+  $('#datepicker').datetimepicker({});
 };
 
 // TODO: (5) docs for remove
@@ -252,7 +250,7 @@ var saveShow = function() {
     }
   }
   var tcktr = JSON.parse(localStorage.tcktr);
-  tcktr.plots.push(show);
+  tcktr.shows.push(show);
   localStorage.tcktr = JSON.stringify(tcktr);
 };
 
@@ -310,29 +308,40 @@ var makeShow = function(displayID) {
 // BOX OFFICE DISPLAY / PRINT / OPERATION ***********************************************
 // **************************************************************************************
 
+//TODO: (5) DOCS DOCS DOCS
+var selectPerformance = function() {
+  var tcktr = JSON.parse(localStorage.tcktr);
+  var id = Number(document.getElementById('showTitle').value);
+  var container = document.getElementById('performanceTitle');
+  var perfs = tcktr.shows[id].performances;
+  for (var i = 0; i < perfs.length; ++i) {
+
+  }
+}
+
 // TODO: (3) Open Box Function / sell mode
 var openBoxoffice = function(displayID) {
+  var tcktr = JSON.parse(localStorage.tcktr);
   var container = document.getElementById(displayID);
-
+  var innards = "<div id='showSelectForm'>";
+  innards += "<label for='showTitle'>Show Title:</label>";
+  innards += "<select id='showTitle' onchange='selectPerformance();'>";
+  for (var i = 0; i < tcktr.shows.length; ++i) {
+    innards += "<option value='" + i + "'>" + tcktr.shows[i].title + "</option>";
+  }
+  innards += "</select>";
+  innards += "</div>";
+  innards += "<div id='performanceTitle'></div>";
+  previous_src = container.innerHTML;
+  drawNavMenu(displayID);
+  container.innerHTML = innards;
+  selectPerformance();
   // TODO: (1) Transaction complete / log
   // TODO: (1) Seat select, etc
 }
 // TODO: (4) Add print ticket function
 // TODO: (4) Add print receipt function
-/*
 
-  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large black">
-      <i class="large mdi-content-undo"></i>
-    </a>
-    <ul>
-      <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
-      <li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li>
-      <li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li>
-      <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
-    </ul>
-  </div>
-*/
 //***************************************************************************************
 // MAIN MENU DISPLAY / CREATION *********************************************************
 // **************************************************************************************
@@ -351,7 +360,6 @@ var drawNavMenu = function(displayID) {
     innards += 'goBackInTime(\''+ displayID + '\');">';
     innards += 'Back</a>'
     // TODO: (2) Add navigation bar stuffs :)
-    // innards += '<li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li><li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li><li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li><li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>';
     innards += '</div>'
   }
   document.getElementById('nav').innerHTML = innards;
@@ -359,7 +367,7 @@ var drawNavMenu = function(displayID) {
 
 var makeMenu = function(displayID) {
   var container = document.getElementById(displayID);
-  var innards = "<ul id='mainMenu'><div class='header'><h1>tcktr</h1><p>Behind the Scenes</p></div>";
+  var innards = "<ul id='mainMenu'><div class='header'><h1>TCKTR</h1><p>Behind the Scenes</p></div>";
   var links = [
     { "t" : "Make House Plot", "o" : "makeHousePlot('" + displayID + "');"},
     { "t" : "Make Show", "o" : "makeShow('" + displayID + "');"},

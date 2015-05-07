@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div id="title"><h2>Find Theatres</h2></div>
+    <div id="title"><h2>Find Shows</h2></div>
 	<div id="mainContainer">
     <p id="catchLine">your box office on-the-go</p>
         <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed pure-menu-scrollable">
@@ -23,42 +23,28 @@
                 <li class="pure-menu-item"><a href="./findshows.php" class="pure-menu-link">Shows</a></li>
                 <li class="pure-menu-item"><a href="./findtheaters.html" class="pure-menu-link">Theatres</a></li>
                 <li class="pure-menu-item"><a href="./about.html" class="pure-menu-link">About Us</a></li>
-                <li class="pure-menu-item"><i class="fa fa-shopping-cart fa-2x"></i>
-                  <div id="cart">
-                      <ul id="checkout">
-                        <li><a href=#>Go to checkout</a>
-                            <ul id=itemList>
-                              <li>
-                                <img style="float:left; padding-right:10px" src="images/item1.jpg" width="64" height="64" alt="Item1" /> 
-                                Lorem ipsum dolor<br />
-                                99:-<br />
-                                Read More
-                              </li>
-                              <li>
-                                <img style="float:left; padding-right:10px" src="images/item1.jpg" width="64" height="64" alt="Item1" /> 
-                                Dolor sit amet<br />
-                                99:-<br />
-                                Read More
-                              </li>
-                            </ul>
-                          </li>
-                      </ul>
-                  </div>
-                </li>
+                <li class="pure-menu-item"><i class="fa fa-shopping-cart fa-2x"></i></li>
             </ul>
         </div>
         
-        <div class="slider3">
-          <div class="slide"><img src="http://placehold.it/500x500" text="[theatre name]"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-          <div class="slide"><img src="http://placehold.it/500x500"></div>
-        </div>
-        <div id="map"></div>
+        <ul class="slider3">
+            <?php
+              $db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
+
+              $sql = $db->prepare("SELECT * FROM `show`");
+              $sql->execute();
+                
+              //$input = array("fa fa-youtube-play fa-3x", "fa fa-camera-retro fa-3x", "fa fa-caret-square-o-right fa-3x", "fa fa-film fa-3x");
+              $input = array("#DC3411","#821C0A","#A1DCD3","#48A7A4","#112425");
+              $count=0;
+              foreach($sql as $row) {
+                echo "<li class='slider' style='background-color:".$input[$count].";'><a href='./show.php?showID=".$row['ID']."'><h2 style='color:white'>".$row['title']."</h2></a></li>";
+                $count+=1;
+              }
+              
+            ?>
+          </ul>
+        <!--<div id="map"></div>-->
         <div id="alerts"></div>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -73,8 +59,7 @@
     <script>
     $(document).ready(function(){
       $('.slider3').bxSlider({
-        slideWidth: 5000,
-        minSlides: 3,
+        slideWidth: 360,
         maxSlides: 3,
         slideMargin: 10
       });

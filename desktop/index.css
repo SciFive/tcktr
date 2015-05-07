@@ -21,9 +21,6 @@ body {
 }
 
 a{
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
   font-family: Arial;
   color: #000066;
   font-size: 15px;
@@ -42,11 +39,8 @@ a:hover {
 }
 
 
-.header{
-    color: dimgray;
-}
-
-h1 {
+.header h1 {
+    padding: 1em;
     margin-top: 2em;
     font-family: 'Raleway', sans-serif;
     letter-spacing: 1px;
@@ -74,7 +68,7 @@ tr{
 td{
     height: auto;
     width: auto;
-    color: black;
+    color: dimgray;
     text-align: center;
     vertical-align: middle;
     border: inherit;

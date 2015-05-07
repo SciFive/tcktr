@@ -38,7 +38,7 @@
 
           foreach($sql as $row) {
 
-            echo "<li class='slide'><a href='show.php?showID=".$row['ID']."'>".$row['title']."</a></li>";
+            echo "HELLLLOOOO";
 
           }
         ?>

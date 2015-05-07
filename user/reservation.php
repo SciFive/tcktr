@@ -8,7 +8,7 @@
 
 $sid = $_GET['show'];
 
-$action = "../send.php?show=" . $sid; 
+$action = "./send.php?show=" . $sid; 
 
 ?>
 
@@ -21,7 +21,7 @@ Performance Time: <select name="showtime">
 
   //echo $_GET['show'];
 
-  $db = new PDO("mysql:host=localhost;dbname=tcktr","root","root");
+  $db = new PDO("mysql:host=45.55.177.60;dbname=tcktr","root","hardlyapassword1!");
 
   $sql = $db->prepare("SELECT date FROM perform WHERE showID = :show");
 

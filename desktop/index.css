@@ -21,9 +21,6 @@ body {
 }
 
 a{
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
   font-family: Arial;
   color: #000066;
   font-size: 20px;

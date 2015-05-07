@@ -19,8 +19,7 @@ $action = "./send.php?show=" . $sid;
 <?php
   //echo $_GET['show'];
 
-  $db = new PDO("mysql:host=45.55.177.60;dbname=tcktr","root","hardlyapassword1!");
->>>>>>> origin/master
+  $db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
   $sql = $db->prepare("SELECT date FROM perform WHERE showID = :show");
 

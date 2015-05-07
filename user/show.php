@@ -29,7 +29,7 @@
 
         	$db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
-		    $sql = $db->prepare("SELECT * FROM show WHERE showID = '$_GET[showID]'");
+		    $sql = $db->prepare("SELECT * FROM show WHERE ID = '$_GET[showID]'");
 
 		    $sql->execute();
 

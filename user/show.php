@@ -82,7 +82,7 @@
 		        	</ul>
 		     	</div>
                 <?php 
-                    echo "<button onclick='reservation.php/?show=" . $_GET['showID'] ."'>Reserve Now</button>";
+                    echo "<a href='reservation.php/?show=" . $_GET['showID'] ."'>Reserve Now</a>";
                 ?>
         </div>
 		

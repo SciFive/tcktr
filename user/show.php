@@ -82,7 +82,6 @@
 		        	</ul>
 		     	</div>
                 <?php 
-                    echo "<a href='reservation.php/?show=" . $_GET['showID'] ."'>Reserve Now</a>";
                 ?>
         </div>
 		

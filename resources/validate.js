@@ -10,7 +10,7 @@ function validateLogin() {
             return false;
         }
         else{ 
-            window.location.href= "./admin/admin.html";
+            window.location.href= "#";
         }
     }
       
@@ -41,6 +41,6 @@ function validateRegister() {
             return false;
         }
 
-        window.location.href= "./admin/admin.html";
+        window.location.href= "#";
         return true;
     }

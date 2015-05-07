@@ -7,9 +7,8 @@
 
 <?php
 
-$sid = $_GET['show'];
-
-$action = "./send.php?show=" . $sid; 
+    $sid = $_GET['show'];
+    $action = "./send.php?show=" . $sid; 
 
 ?>
 

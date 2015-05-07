@@ -27,22 +27,24 @@
             </ul>
         </div>
         
-        <div>
-          <ul>
+        <ul class="slider3">
             <?php
               $db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
               $sql = $db->prepare("SELECT * FROM `show`");
               $sql->execute();
-
+                
+              //$input = array("fa fa-youtube-play fa-3x", "fa fa-camera-retro fa-3x", "fa fa-caret-square-o-right fa-3x", "fa fa-film fa-3x");
+              $input = array("#DC3411","#821C0A","#A1DCD3","#48A7A4","#112425");
+              $count=0;
               foreach($sql as $row) {
-                echo $row['title'];
+                echo "<li class='slider' style='background-color:".$input[$count].";'><a href='./show.php?showID=".$row['ID']."'><h2 style='color:white'>".$row['title']."</h2></a></li>";
+                $count+=1;
               }
               
             ?>
           </ul>
-        </div>
-        <div id="map"></div>
+        <!--<div id="map"></div>-->
         <div id="alerts"></div>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -57,8 +59,7 @@
     <script>
     $(document).ready(function(){
       $('.slider3').bxSlider({
-        slideWidth: 5000,
-        minSlides: 3,
+        slideWidth: 360,
         maxSlides: 3,
         slideMargin: 10
       });

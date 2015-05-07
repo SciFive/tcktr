@@ -59,16 +59,34 @@
 						$sql->execute();
 					}
 
-					echo "You reserved " . $_POST['numTicket'] . " Tickets!";
-					echo "<a href='http://websci/tcktr/user/reservation.php/?show=" . $_GET['show']. "'> Go Back </a>";
+					require_once "Mail.php";
 
-					$message = "Thank you for reserving " . $_POST['numTicket'] . " Tickets for the show!";
-					$headers = array("From: tcktr.customer.relations@gmail.com",
-								    "Reply-To: tcktr.customer.relations@gmail.com",
-								    "X-Mailer: PHP/" . PHP_VERSION
-								);
-					$headers = implode("\r\n", $headers);
-					mail('dibol13@gmail.com', 'Ticket Reservation', $message, $headers);
+					$from = '<tcktr.customer.relations@gmail.com>';
+					$to = '<' . $_POST['email'] . '>';
+					$subject = 'Thank you for reserving tickets!';
+					$body = "You Reserved " . $_POST['numTicket'] . " Tickets!" ;
+
+					$headers = array(
+					    'From' => $from,
+					    'To' => $to,
+					    'Subject' => $subject
+					);
+
+					$smtp = Mail::factory('smtp', array(
+					        'host' => 'ssl://smtp.gmail.com',
+					        'port' => '465',
+					        'auth' => true,
+					        'username' => 'tcktr.customer.relations@gmail.com',
+					        'password' => 'bunny5lea'
+					    ));
+
+					$mail = $smtp->send($to, $headers, $body);
+
+					if (PEAR::isError($mail)) {
+					    echo('<p>' . $mail->getMessage() . '</p>');
+					} else {
+					    echo('<p>Message successfully sent!</p>');
+					}
 				}
 				else{
 					echo "You tried to reserve too many tickets! There are only " . $row["numTickets"] - $row["reserved"] . " Tickets left!";

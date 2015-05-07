@@ -91,6 +91,9 @@
 					    echo('<p>Message successfully sent!</p>');
 					}
 					*/
+
+					echo "Thank you for reserving Tickets! You have " . $_POST["numTicket"] . " Tickets reserved!";
+					echo "<a href='http://websci/tcktr/user/reservation.php/?show=" . $_GET['show']. "> Go Back </a>";
 				}
 				else{
 					echo "You tried to reserve too many tickets! There are only " . $row["numTickets"] - $row["reserved"] . " Tickets left!";

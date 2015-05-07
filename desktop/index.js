@@ -283,6 +283,7 @@ var saveShow = function() {
     }
   }
   var performanceList = document.getElementById('makeShowFormPerformanceList').children;
+  // TODO: (4) Date picker only works for first perf, don't tell anyone D:
   for (var i = 0; i < performanceList.length; ++i) {
     if (performanceList[i].style.display != 'none') {
       show.performances.push({

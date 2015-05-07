@@ -11,7 +11,7 @@
 <?php
 
     $sid = $_GET['show'];
-    $action = "./send.php?show=" . $sid; 
+    $action = "../send.php?show=" . $sid; 
 
 ?>
 

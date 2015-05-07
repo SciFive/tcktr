@@ -15,12 +15,13 @@
 
         if($_POST[$value]==""){
             $filled = false;
+            echo "HI";
         }
     }
 
     //If there are any fields not filled out, send the user back to the form
     if (!$filled){
-        header("Location: http://websci/tcktr/user/reservation.php/?show=" . $_GET['show']); 
+        //header("Location: http://websci/tcktr/user/reservation.php/?show=" . $_GET['show']); 
     }
 
     else {

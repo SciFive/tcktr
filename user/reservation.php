@@ -1,27 +1,24 @@
 <!DOCTYPE HTML> 
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="../resources/style.css"/>
 </head>
 <body> 
 
 <?php
 
-$sid = $_GET['show'];
-
-$action = "../send.php?show=" . $sid; 
+    $sid = $_GET['show'];
+    $action = "./send.php?show=" . $sid; 
 
 ?>
 
-<h2>PHP Form Validation Example</h2>
-
 <form method="post" action=<?php echo $action?>> 
-
-Performance Time: <select name="showtime">
+    <div id="reservation"><h1>Reserve Show<span>Please fill out the following form fields.</span></h1>
+        <div id="perform"><span>Performance Time: </span><select name="showtime" id="picktime">
 <?php
-
   //echo $_GET['show'];
 
-  $db = new PDO("mysql:host=localhost;dbname=tcktr","root","root");
+  $db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
   $sql = $db->prepare("SELECT date FROM perform WHERE showID = :show");
 
@@ -32,28 +29,30 @@ Performance Time: <select name="showtime">
   $i = 0;
 
   foreach($sql as $row) {
-    
-    //$dates[$i] = date('M jS g:ia',strtotime($row["date"]));
-    //echo $dates[$i];
 
     echo "<option value='". $row["date"] . "'>" . date('M jS g:ia',strtotime($row["date"])) . "</option>";
     
   }
 ?>
-  </select>
-  <br><br>
-  First Name: <input type="text" name="fname" required>
-   <br><br>
-  Last Name: <input type="text" name="lname" required>
-   <br><br>
-  Email: <input type="text" name="email" required>
-   <br><br>
-  Number of Tickets: <input type="number" min="1" max="10" name="numTicket" required>
-   <br><br>
-  Mailing list:
-   <input type="radio" name="list"> Yes
-   <br><br>
-   <input type="submit" name="submit" value="Submit"> 
+            </select></div>
+  <label>
+      <span>First Name:</span> <input type="text" name="fname" required></label>
+   
+    <label>
+        <span>Last Name: </span><input type="text" name="lname" required></label>
+  
+    <label>
+        <span>Email:</span> <input type="text" name="email" required></label>
+  
+    <label>
+        <span>Number of Tickets: </span> <input type="number" min="1" max="10" name="numTicket" required></label>
+  
+    <label>
+    <span>Mailing list:</span>
+    <input type="checkbox" name="list"></label>
+   
+        <button type="submit" name="submit" value="Submit">Submit</button> 
+    </div>
 </form>
 
 

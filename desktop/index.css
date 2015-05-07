@@ -2,7 +2,7 @@
 
 p{
     padding-bottom: .8em;
-    font-size: 2em;
+    font-size: 1em;
     text-align: center;
     color: white; 
     font-family: 'Raleway', sans-serif;
@@ -23,10 +23,14 @@ body {
 a{
   font-family: Arial;
   color: #000066;
-  font-size: 20px;
+  font-size: 15px;
   background: #f5f5f5;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+}
+
+#nav{
+    margin-top: 2em;
 }
 
 a:hover {
@@ -35,13 +39,11 @@ a:hover {
 }
 
 
-.header{
-    color: dimgray;
-}
-
-h1 {
+.header h1 {
+    padding: 1em;
+    margin-top: 2em;
     font-family: 'Raleway', sans-serif;
-	  letter-spacing: 1px;
+    letter-spacing: 1px;
     color: white;
     border: solid 2px white;
     margin-right: .5em;
@@ -59,7 +61,6 @@ table{
 }
         
 tr{
-    border: 1px solid white;
     height: auto;
     width: auto;
 }
@@ -67,7 +68,7 @@ tr{
 td{
     height: auto;
     width: auto;
-    color: white;
+    color: dimgray;
     text-align: center;
     vertical-align: middle;
     border: inherit;
@@ -88,14 +89,14 @@ tr:first-of-type{
 }
         
 tr:first-of-type td{
-    background-color: white;
-    color: dimgray;
+    background-color: #1f8dd6;
+    color: whitesmoke;
 }
         
 tr > td:first-of-type{
     border: none;
-    background-color: white;
-    color: dimgray;
+    background-color: #1f8dd6;
+    color: whitesmoke;
 }
 
                 
@@ -104,9 +105,9 @@ td:hover{
 }
 
 
-td[data-state='0']{ background-color:#617798; }
+td[data-state='0']{ background-color:white; }
 td[data-state='1']{ background-color: black; color:black;}
-td[data-state='2']{ background-color:#617798; }
+td[data-state='2']{ background-color:white; }
 
 
 #makeHouseController input{ 
@@ -117,7 +118,111 @@ td[data-state='2']{ background-color:#617798; }
     width: 5em; 
     background: #FFFFFF; 
 } 
-   
+
+#makeHouseController{
+    float: left;
+    width: 4em;
+    color:whitesmoke;
+    padding-top: 2em;
+    padding-left: 1em;
+}
+
+#housePlot{
+    padding-top: 1em;
+}
+
+#savePlot{
+    background: dimgrey;
+    margin-bottom: .2em;
+}
+
+#mainMenu li{
+    padding-top: 1em;
+    margin-bottom: 5px; 
+}
+
+#makeShowFormTicketBox{
+    border-top: solid 2px;
+    border-bottom: solid 2px;
+    border-color: darkgrey;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#makeShowFormPerformanceBox{
+    border-bottom: solid 2px;
+    border-color: darkgrey;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#makeShowForm {
+    margin-left:auto;
+    margin-right:auto;
+
+    max-width: 500px;
+    background: #FFF;
+    padding: 30px 30px 20px 30px;
+    box-shadow: rgba(187, 187, 187, 1) 0 0px 20px -1px;
+    -webkit-box-shadow: rgba(187, 187, 187, 1) 0 0px 20px -1px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+#makeShowForm h1 {
+    font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom: 1px solid #F5F5F5;
+    margin: -10px -30px 10px -30px;
+    color: #969696;
+}
+#makeShowForm h1>span {
+    display: block;
+    font-size: 11px;
+    color: #C4C2C2;
+}
+#makeShowFormlabel {
+    display: block;
+    margin: 0px 0px 5px;
+}
+#makeShowForm label>span {
+    float: left;
+    width: 20%;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    color: #969696;
+}
+#makeShowForm input[type="text"]{
+    color: #555;
+    width: 70%;
+    padding: 3px 0px 3px 5px;
+    margin-top: 2px;
+    margin-right: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #e5e5e5;
+    background: #fbfbfb;
+    height: 25px;
+    line-height:15px;
+    outline: 0;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+    box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+}
+
+#makeShowForm input[type="checkbox"]{
+    color: #555;
+    width: 15px;
+    display: block;
+    margin-bottom: 1em;
+    margin-top: .5em;
+    background: #fbfbfb;
+    height: 20px;
+    line-height:15px;
+    outline: 0;
+}
+
 input:hover, textarea:hover, 
 input:focus, textarea:focus { 
     border-color: #C9C9C9; 
@@ -129,27 +234,21 @@ input:focus, textarea:focus {
 } 
    
 button { 
-    width: auto; 
     padding: 9px 15px; 
     margin-top: .5em;
-    background: #617798; 
+    margin-left: auto;
+    margin-right: auto;
+    background: #1f8dd6; 
     border: 0; 
     font-size: 14px; 
     color: #FFFFFF; 
+    display: block;
 }
 
-#makeHouseController{
-    float: left;
-    width: 4em;
-    color:dimgray;
-    padding: 1em;
+.remove{
+    background-color: crimson;
 }
 
-#housePlot{
-    padding-top: 1em;
-}
-
-#mainMenu li{
-    padding-top: 1em;
-    margin-bottom: 5px; 
+#save{
+    width: 90%;
 }

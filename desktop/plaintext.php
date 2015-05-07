@@ -7,5 +7,5 @@
         $val = $row['title'];
         $data .= "$val\n";
     }       
-    file_put_contents($this->temp_files['names'], $data);
+    file_put_contents("show_names.txt", $data);
 ?>

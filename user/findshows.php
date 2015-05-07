@@ -27,7 +27,7 @@
             </ul>
         </div>
         
-        <div class="slider3">
+        <div ul>
           <?php
           $db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
@@ -38,11 +38,11 @@
 
           foreach($sql as $row) {
 
-            echo "<div class='slide'><a href='show.php?showID=".$row['ID']."'>".$row['title']."</a></div>";
+            echo "<li class='slide'><a href='show.php?showID=".$row['ID']."'>".$row['title']."</a></li>";
 
           }
         ?>
-        </div>
+        </ul>
         <div id="map"></div>
         <div id="alerts"></div>
     

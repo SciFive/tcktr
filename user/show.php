@@ -46,7 +46,7 @@
  		?>
 
         <div id="show">
-        	<p><?php $name ?></p>
+        	<p><?php echo $name ?></p>
         	<div id="showimg">
         		<img src="http://www.freedesign4.me/wp-content/gallery/posters/free-movie-film-poster-the_dark_knight_movie_poster.jpg">
         	</div>

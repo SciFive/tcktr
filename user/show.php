@@ -46,16 +46,16 @@
  		?>
 
         <div id="show">
-        	<p><?php echo $name ?></p>
+        	<p><?php echo $name; ?></p>
         	<div id="showimg">
         		<img src="http://www.freedesign4.me/wp-content/gallery/posters/free-movie-film-poster-the_dark_knight_movie_poster.jpg">
         	</div>
         	<div id="showinfo">
 	        	<ul>
-	        		<li>Location: <?php echo $location ?></li>
-	        		<li>Length: <?php echo $length ?></li>
-	        		<li>Genre(s): <?php echo $genre ?></li>
-	        		<li><?php echo $description ?></li>
+	        		<li>Location: <?php echo $location; ?></li>
+	        		<li>Length: <?php echo $length; ?></li>
+	        		<li>Genre(s): <?php echo $genre; ?></li>
+	        		<li><?php echo $description; ?></li>
 	        		<li>Pick a time and find a seat for this show</li>
 	        		<ul>
 	        			<?php 

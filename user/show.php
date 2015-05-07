@@ -26,42 +26,46 @@
         </div>
 
         <?php
-
         	$db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
-
-		    $sql = $db->prepare("SELECT * FROM show WHERE ID = '$_GET[showID]'");
-
-		    $sql->execute();
-
-		    $name;
-		    $location;
-		    $description;
-		    $length;
-		    $genre;
-
-		    foreach($sql as $row) {
-
-			    $name = $row['name'];
-			    $location = $row['location'];
-			    $description = $row['description'];
-			    $length = $row['length'];
-			    $genre = $row['genre'];
-			    
-			}
-
  		?>
 
         <div id="show">
-        	<p><?php echo $name; ?></p>
+        	<p>
+
+        	<?php
+
+			    $sql = $db->prepare("SELECT * FROM `show` WHERE ID = '$_GET[showID]'");
+
+			    $sql->execute();
+
+			    foreach($sql as $row) {
+				    echo $row['title'];
+				}
+
+	 		?>
+
+        	</p>
         	<div id="showimg">
         		<img src="http://www.freedesign4.me/wp-content/gallery/posters/free-movie-film-poster-the_dark_knight_movie_poster.jpg">
         	</div>
         	<div id="showinfo">
 	        	<ul>
-	        		<li>Location: <?php echo $location; ?></li>
-	        		<li>Length: <?php echo $length; ?></li>
-	        		<li>Genre(s): <?php echo $genre; ?></li>
-	        		<li><?php echo $description; ?></li>
+
+	        	<?php
+
+				    $sql = $db->prepare("SELECT * FROM `show` WHERE ID = '$_GET[showID]'");
+
+				    $sql->execute();
+
+				    foreach($sql as $row) {
+					    echo "<li>Location: ". $row['location']."</li>";
+	        			echo "<li>Length: " . $row['length'] . "</li>";
+	        			echo "<li>Genre(s): " . $row['genre'] . "</li>";
+	        			echo "<li>". $row['description'] . "</li>";
+					}
+
+		 		?>
+
 	        		<li>Pick a time and find a seat for this show</li>
 	        		<ul>
 	        			<?php 

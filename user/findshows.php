@@ -30,13 +30,13 @@
             <?php
               $db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
-              $sql = $db->prepare("SELECT * FROM `show`");
+              $sql = $db->prepare("SELECT * FROM `show`"); // Find all the shows in the Database
               $sql->execute();
                 
               //$input = array("fa fa-youtube-play fa-3x", "fa fa-camera-retro fa-3x", "fa fa-caret-square-o-right fa-3x", "fa fa-film fa-3x");
               $input = array("#DC3411","#821C0A","#A1DCD3","#48A7A4","#112425");
               $count=0;
-              foreach($sql as $row) {
+              foreach($sql as $row) { // Loop through all shows available and print out the information to the screen
                 echo "<li class='slider' style='background-color:".$input[4%$count].";'><a href='./show.php?showID=".$row['ID']."'><h2 style='color:white'>".$row['title']."</h2></a></li>";
                 $count+=1;
               }

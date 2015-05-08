@@ -10,34 +10,36 @@
 
 <?php
 
+  // Get the show ID from the URL
     $sid = $_GET['show'];
-    $action = "../send.php?show=" . $sid; 
+    $action = "../send.php?show=" . $sid; // Set action for form submit
 
 ?>
 
-<form method="post" action=<?php echo $action?>> 
+<form method="post" action=<?php echo $action?>> // Create the form for reservations
     <div id="reservation"><h1>Reserve Show<span>Please fill out the following form fields.</span></h1>
         <div id="perform"><span>Performance Time: </span><select name="showtime" id="picktime">
 <?php
-  //echo $_GET['show'];
+  // Pull the performance date and times from the SQL database
 
   $db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
 
   $sql = $db->prepare("SELECT date FROM perform WHERE showID = :show");
 
-  $sql->bindValue(":show", $sid);
+  $sql->bindValue(":show", $sid); // Bind the Show ID
 
   $sql->execute();
 
   $i = 0;
 
-  foreach($sql as $row) {
+  foreach($sql as $row) { // Loop through all productions and make them available in the dropdown menu
 
     echo "<option value='". $row["date"] . "'>" . date('M jS g:ia',strtotime($row["date"])) . "</option>";
     
   }
 ?>
             </select></div>
+  <!-- List all other form fields -->
   <label>
       <span>First Name:</span> <input type="text" name="fname" required></label>
    
@@ -54,7 +56,7 @@
     <span>Mailing list:</span>
     <input type="checkbox" name="list"></label>
    
-        <button type="submit" name="submit" value="Submit">Submit</button> 
+        <button type="submit" name="submit" value="Submit">Submit</button> // Button to submit the form
     </div>
 </form>
 

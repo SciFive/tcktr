@@ -3,7 +3,7 @@
   "main": "index.html",
   "window" : {
     "title" : "tcktr",
-    "toolbar" : true,
+    "toolbar" : false,
     "position" : "center",
     "icon": "./tcktr.png"
   }

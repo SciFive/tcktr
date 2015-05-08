@@ -26,7 +26,7 @@
             </ul>
         </div>
 
-        <?php
+        <?php // Connect to the DB
         	$db = new PDO("mysql:host=localhost;dbname=tcktr","root","hardlyapassword1!");
  		?>
 
@@ -35,13 +35,13 @@
 =======
         	<p>
 
-        	<?php
+        	<?php // Pull the show information from the Database
 
 			    $sql = $db->prepare("SELECT * FROM `show` WHERE ID = '$_GET[showID]'");
 
 			    $sql->execute();
 
-			    foreach($sql as $row) {
+			    foreach($sql as $row) { // Get the Title of the Show
 				    echo $row['title'];
 				}
 
@@ -61,7 +61,7 @@
 
 				    $sql->execute();
 
-				    foreach($sql as $row) {
+				    foreach($sql as $row) { // Print out all of the values stored in the Database into HTML for the user
 					    echo "<li>Location: ". $row['location']."</li>";
 	        			echo "<li>Length: " . $row['length'] . "</li>";
 	        			echo "<li>Genre(s): " . $row['genre'] . "</li>";
@@ -72,7 +72,7 @@
 
 	        		<li>Pick a time and find a seat for this show</li>
 	        		<ul>
-	        			<?php 
+	        			<?php // Link all potential performance dates and times
 	        				$sql = $db->prepare("SELECT date FROM perform WHERE showID = '$_GET[showID]'");
 
 							$sql->execute();
@@ -86,7 +86,6 @@
 		        	</ul>
 		     	</div>
                 <?php 
-                    echo '<button onclick="reservation.php/?show=' . $_GET['showID'] .'">Reserve Now</button>'
                 ?>
         </div>
 		
